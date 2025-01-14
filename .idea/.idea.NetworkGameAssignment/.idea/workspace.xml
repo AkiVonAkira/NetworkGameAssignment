@@ -5,48 +5,220 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7416451-9a69-4fac-9c25-d3168358af21" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Ladder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/NetworkManagerUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/NetworkStatsUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerNetworkGun.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerNetworkStats.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerStatsUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/UI/LobbyButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NetworkGameAssignment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NetworkGameAssignment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Demo Blend.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Demo Blend.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Demo Blend/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Demo Blend/LightingData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BOXOPHOBIC/Utils/Settings/HD Volume Day.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BOXOPHOBIC/Utils/Settings/HD Volume Day.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Materials/Blue_Mat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Materials/GreyBlue_Mat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Materials/GridBlue_01_Mat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Materials/GridOrange_01_Mat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Materials/GridWhite_01_Mat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Models/Box_350x250x200_Mesh.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Models/Box_350x250x300_Mesh.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Models/Ground_Mesh.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Models/Ramp_100x100x200_Mesh.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Models/Ramp_Mesh.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Models/Stairs_200x100x200_Mesh.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Models/Stairs_650_400_300_Mesh.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Models/Structure_Mesh.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Models/Tunnel_Mesh.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Models/Wall_Mesh.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Skybox/SkyboxLite.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Skybox/SkyboxLiteWarm.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Textures/Grid_01_BaseMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Textures/Grid_01_Emissive.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Textures/Grid_01_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Art/Textures/Grid_02_BaseMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Prefabs/Box_100x100x100_Prefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Prefabs/Box_350x250x200_Prefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Prefabs/Box_350x250x300_Prefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Prefabs/Environment_Prefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Prefabs/Ramp_Prefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Prefabs/Stairs_200x100x200_Prefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Prefabs/Stairs_650_400_300_Prefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Prefabs/Structure_Prefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Prefabs/Tunnel_Prefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/Prefabs/Wall_Prefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/RenderPipelineProfiles/StarterAssetsHDRPVolumeProfile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/RenderPipelineProfiles/StarterAssetsURPAsset.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/RenderPipelineProfiles/StarterAssetsURPGlobalSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Environment/RenderPipelineProfiles/StarterAssetsURPRenderer.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UserChoices.choices" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LowPoly/LowPolyFPSLite/Prefabs/Stairs_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LowPoly/LowPolyFPSLite/Prefabs/Stairs_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Animations/Moving Target.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Animations/Target.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/BuiltIn/Concrete.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/BuiltIn/Grass.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/BuiltIn/Gravel.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/BuiltIn/Jump Pad.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/BuiltIn/Metal.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/BuiltIn/Player Interactable.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/BuiltIn/Target.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/BuiltIn/Walls.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/BuiltIn/Water.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/BuiltIn/Wood.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/HDRP/Concrete.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/HDRP/Grass.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/HDRP/Gravel.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/HDRP/Jump Pad.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/HDRP/Metal.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/HDRP/Player Interactable.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/HDRP/Target.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/HDRP/Target_MaskMap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/HDRP/Walls.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/HDRP/Water.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/HDRP/Wood.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/SkyHaloSky.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/URP/Concrete.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/URP/Grass.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/URP/Gravel.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/URP/Jump Pad.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/URP/Metal.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/URP/Player Interactable.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/URP/Target.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/URP/Walls.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/URP/Water.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Materials/URP/Wood.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Prefabs/Bullet Shell.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Prefabs/lod0.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/ProBuilder Meshes/pb_Mesh-31254(Clone).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/ProBuilder Meshes/pb_Mesh-31254.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/ProBuilder Meshes/pb_Mesh-35426(Clone).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/ProBuilder Meshes/pb_Mesh-35426.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/ProBuilder Meshes/pb_Mesh-48280.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Textures/Grid_01_BaseMap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Textures/Grid_01_Emissive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Textures/Grid_01_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Textures/Grid_02_BaseMap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Textures/Mark_low_DefaultMaterial_AlbedoTransparency.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Textures/Mark_low_DefaultMaterial_MetallicSmoothness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Textures/Mark_low_DefaultMaterial_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Textures/SkyHole_Back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Textures/SkyHole_Bottom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Textures/SkyHole_Front.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Textures/SkyHole_Left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Textures/SkyHole_Right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Environment/Textures/SkyHole_Top.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Scripts/Demo Menu.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Scripts/Movable Gameobject Hit.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo Scripts/Shell Ejection.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo_URP.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo_URP/Global Volume Profile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Demo/Demo_URP/OcclusionCullingData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Documentation.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Prefabs/---User Interface---.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Prefabs/870_Shotgun.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Prefabs/AK-47.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Prefabs/L96_Sniper_Rifle.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Prefabs/M4_Carbine.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Prefabs/Pistol.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Prefabs/Standing Target.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Editor/FPS Input Manager Editor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Editor/First Person Controller Editor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Editor/Parabolic Bullet Editor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Editor/Pool Manager Editor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Editor/Rendering Pipeline Definitions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Editor/Weapon Pickup Editor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Editor/Weapon System Editor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Editor/XtremeFPS Editor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/First Person Controller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Input Manager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Input System/InputSystem.inputsettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Input System/Player Input Action.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Input System/Player Input Action.inputactions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Interfaces/IPickup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Interfaces/IShootableObject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Parabolic Bullet.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Pool Manager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Universal Weapon System.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/Weapon Pickup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Concrete/Asphalt (1).wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Concrete/Asphalt (2).wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Concrete/Asphalt (3).wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Concrete/Asphalt (4).wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Concrete/Asphalt (7).wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Grass/grass.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Grass/grass1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Grass/grass2.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Grass/grass3.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Gravel/gravel.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Gravel/gravel1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Gravel/gravel2.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Gravel/gravel3.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Gravel/gravel4.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Gravel/gravel5.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Metal/Metal_A.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Metal/Metal_B.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Metal/Metal_C.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Metal/Metal_D.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Player/Jump.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Player/Land.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Player/Sliding.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Water/Water1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Water/Water2.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Water/Water3.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Weapons/870_Shotgun.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Weapons/AK - 47.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Weapons/Common Reload.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Weapons/L96_Sniper_Rifle.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Weapons/M4 Carbine.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Weapons/Pistol.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Wood/wood (1).wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Wood/wood (2).wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Wood/wood (3).wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Wood/wood (4).wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Sounds/Wood/wood (5).wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Animations/Reload.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Animations/Reload.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Bullet/Bullet.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Effects/Prefabs/BulletImpactMetalEffect.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Effects/Prefabs/MuzzleFlashEffect.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Effects/Textures/BulletHoleMetalThroughAlbedo.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Effects/Textures/BulletHoleMetalThroughNormals.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Effects/Textures/FlashParticle.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/BuiltIn/870_Shotgun 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/BuiltIn/AK-47 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/BuiltIn/BulletDecalMetal.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/BuiltIn/BulletMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/BuiltIn/BulletTrail.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/BuiltIn/L96_Sniper_Rifle 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/BuiltIn/M4_Carbine 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/BuiltIn/MuzzleFlashParticle.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/BuiltIn/Pistol 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/870_Shotgun 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/870_Shotgun 1_MaskMap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/AK-47 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/AK-47 1_MaskMap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/BulletDecalMetal.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/BulletMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/BulletTrail.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/L96_Sniper_Rifle 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/L96_Sniper_Rifle 1_MaskMap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/M4_Carbine 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/M4_Carbine 1_MaskMap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/MuzzleFlashParticle.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/Pistol 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/HDRP/Pistol 1_MaskMap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/URP/870_Shotgun 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/URP/AK-47 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/URP/BulletDecalMetal.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/URP/BulletMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/URP/BulletTrail.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/URP/L96_Sniper_Rifle 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/URP/M4_Carbine 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/URP/MuzzleFlashParticle.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Materials/URP/Pistol 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Models/870_Shotgun.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Models/AK-47.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Models/L96_Sniper_Rifle.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Models/M4_Carbine.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Models/Materials/870_Shotgun.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Models/Materials/AK-47.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Models/Materials/L96_Sniper_Rifle.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Models/Materials/M4_Carbine.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Models/Materials/Pistol.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Models/Pistol.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/870_Shotgun_Albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/870_Shotgun_Metallic.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/870_Shotgun_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/AK-47_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/Ak-47_Albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/Ak-47_Metallic.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/L96_Albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/L96_Metallic.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/L96_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/M4_Albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/M4_Metallic.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/M4_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/Pistol_Albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/Pistol_Metallic.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/Textures/Pistol_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/User Interfaces/Aim.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/User Interfaces/Bullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/User Interfaces/Crouch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/User Interfaces/Interact.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/User Interfaces/ScopeOverlay.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Weapon/User Interfaces/reload.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Settings/DefaultVolumeProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Settings/DefaultVolumeProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/CameraSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/CameraSwitcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/ClientNetworkAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/ClientNetworkAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/ClientNetworkTransform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/ClientNetworkTransform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/ClientPlayerMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/ClientPlayerMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/PlayerNetworkStats.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/PlayerStatsUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,32 +229,35 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Spoiled Unknown/XtremeFPS/Scripts/First Person Controller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/_Scripts/PlayerSpawnPosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine/Runtime/Behaviours/CinemachineBrain.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2ra8y4zNuWKchnm3fe0TjGFFOdN" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Unity.exe" />
@@ -137,6 +312,7 @@
       <updated>1736786078244</updated>
       <workItem from="1736786079851" duration="3000" />
       <workItem from="1736796706436" duration="2262000" />
+      <workItem from="1736864972009" duration="15518000" />
     </task>
     <servers />
   </component>
