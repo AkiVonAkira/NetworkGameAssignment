@@ -2044,7 +2044,7 @@ MonoBehaviour:
   MoveSpeed: 2
   SprintSpeed: 3.35
   CrouchSpeed: 1.25
-  ClimbSpeed: 2
+  ClimbSpeed: 8
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   JumpHeight: 1.2

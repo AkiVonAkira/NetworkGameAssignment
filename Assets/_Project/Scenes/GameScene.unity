@@ -7949,14 +7949,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs_01 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 197416473921609954, guid: e059938ac4b575643a3345b530869d15, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 197416473921609954, guid: e059938ac4b575643a3345b530869d15, type: 3}
-      propertyPath: m_TagString
-      value: Ladder
-      objectReference: {fileID: 0}
     - target: {fileID: 717916840937405016, guid: e059938ac4b575643a3345b530869d15, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.062

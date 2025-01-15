@@ -5,25 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7416451-9a69-4fac-9c25-d3168358af21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/FirstPersonController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/InputSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NetworkGameAssignment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NetworkGameAssignment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LowPoly/LowPolyFPSLite/Prefabs/Stairs_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LowPoly/LowPolyFPSLite/Prefabs/Stairs_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssets.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssets.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Ladder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Ladder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/NetworkManagerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/NetworkManagerUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/ClientNetworkAnimator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/ClientNetworkTransform.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/NetworkStatsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/NetworkStatsUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/ClientPlayerMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/ClientPlayerMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/FPSController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerNetworkGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerNetworkGun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerNetworkStats.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerStatsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerStatsUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/FirstPersonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/FirstPersonController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +106,7 @@
       <workItem from="1736864972009" duration="15518000" />
       <workItem from="1736943942685" duration="304000" />
       <workItem from="1736944289113" duration="1411000" />
-      <workItem from="1736947240697" duration="5805000" />
+      <workItem from="1736947240697" duration="6771000" />
     </task>
     <servers />
   </component>

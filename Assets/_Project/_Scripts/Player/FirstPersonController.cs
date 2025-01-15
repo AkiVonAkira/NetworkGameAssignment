@@ -200,18 +200,18 @@ namespace _Project
                 _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
             }
 
-            if (IsClimbing)
-            {
-                var vertical = Input.GetAxis("Vertical");
-                var climbDirection = new Vector3(0, vertical * ClimbSpeed, 0);
-                _controller.Move(climbDirection * Time.deltaTime);
-
-                if (_controller.isGrounded && vertical > 0)
-                {
-                    IsClimbing = false;
-                    _controller.slopeLimit = 45.0f;
-                }
-            }
+            // if (IsClimbing)
+            // {
+            //     var vertical = Input.GetAxis("Vertical");
+            //     var climbDirection = new Vector3(0, vertical * ClimbSpeed, 0);
+            //     _controller.Move(climbDirection * Time.deltaTime);
+            //
+            //     if (_controller.isGrounded && vertical > 0)
+            //     {
+            //         IsClimbing = false;
+            //         _controller.slopeLimit = 45.0f;
+            //     }
+            // }
 
             if (_input.crouch)
             {
@@ -228,6 +228,8 @@ namespace _Project
 
         private void JumpAndGravity()
         {
+            if (_input == null) return;
+
             if (Grounded)
             {
                 _fallTimeoutDelta = FallTimeout;
