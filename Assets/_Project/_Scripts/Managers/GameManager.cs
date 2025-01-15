@@ -1,3 +1,4 @@
+using _Project;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ public class GameManager : NetworkBehaviour
 
     private new void OnDestroy()
     {
-        if (IsServer)
+        if (NetworkManager.Singleton != null && IsServer)
         {
             NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnected;
@@ -29,7 +30,7 @@ public class GameManager : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if (IsServer)
+        if (NetworkManager.Singleton != null && IsServer)
         {
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
@@ -64,6 +65,7 @@ public class GameManager : NetworkBehaviour
             var player = Instantiate(NetworkManager.Singleton.NetworkConfig.PlayerPrefab, spawnPosition,
                 Quaternion.identity);
             player.GetComponent<NetworkObject>().SpawnAsPlayerObject(client.ClientId);
+
             _networkStatsUI.UpdatePort();
         }
     }

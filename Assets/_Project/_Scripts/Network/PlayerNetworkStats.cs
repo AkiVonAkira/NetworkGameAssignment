@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class PlayerNetworkStats : NetworkBehaviour
 {
-    public NetworkVariable<int> MaxHealth = new(100);
-    public NetworkVariable<int> Health = new(100);
-    public NetworkVariable<int> Ammo = new(30);
+    public NetworkVariable<int> maxHealth = new(100);
+    public NetworkVariable<int> health = new(100);
+    public NetworkVariable<int> ammo = new(30);
 
     private void Update()
     {
@@ -18,9 +18,9 @@ public class PlayerNetworkStats : NetworkBehaviour
 
         if (!IsOwner) return;
 
-        Health.Value = MaxHealth.Value;
-        Health.OnValueChanged += OnHealthChanged;
-        Ammo.OnValueChanged += OnAmmoChanged;
+        health.Value = maxHealth.Value;
+        health.OnValueChanged += OnHealthChanged;
+        ammo.OnValueChanged += OnAmmoChanged;
     }
 
     public override void OnNetworkDespawn()
@@ -29,23 +29,23 @@ public class PlayerNetworkStats : NetworkBehaviour
 
         if (!IsOwner) return;
 
-        Health.OnValueChanged -= OnHealthChanged;
-        Ammo.OnValueChanged -= OnAmmoChanged;
+        health.OnValueChanged -= OnHealthChanged;
+        ammo.OnValueChanged -= OnAmmoChanged;
     }
 
     private void OnHealthChanged(int oldValue, int newValue)
     {
-        Debug.Log("Health changed to: " + newValue);
+        Debug.Log($"Health changed to: {newValue.ToString()}");
     }
 
     private void OnAmmoChanged(int oldValue, int newValue)
     {
-        Debug.Log("Ammo changed to: " + newValue);
+        Debug.Log($"Ammo changed to: {newValue.ToString()}");
     }
 
     [ServerRpc]
     private void ReloadAmmoServerRpc()
     {
-        Ammo.Value = 30;
+        ammo.Value = 30;
     }
 }

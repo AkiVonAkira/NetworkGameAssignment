@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class NetworkStatsUI : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI fpsText;
     [SerializeField] private TextMeshProUGUI pingText;
     [SerializeField] private TextMeshProUGUI portText;
-    [SerializeField] private TextMeshProUGUI fpsText;
     private ushort _cachedPort;
 
     private float _deltaTime;
@@ -19,13 +19,16 @@ public class NetworkStatsUI : MonoBehaviour
 
     private void Update()
     {
-        UpdatePing();
+        if (NetworkManager.Singleton != null && (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsHost))
+        {
+            UpdatePing();
+        }
         UpdateFPS();
     }
 
     private void UpdatePing()
     {
-        if (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsHost)
+        if (NetworkManager.Singleton != null)
         {
             // Get the current ping
             var ping = NetworkManager.Singleton.NetworkConfig.NetworkTransport.GetCurrentRtt(NetworkManager.Singleton
@@ -49,4 +52,4 @@ public class NetworkStatsUI : MonoBehaviour
             portText.text = _cachedPort != 0 ? $"Port: {_cachedPort}" : "";
         }
     }
-} 
+}

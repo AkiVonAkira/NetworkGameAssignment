@@ -70,6 +70,9 @@ public class NetworkManagerUI : NetworkBehaviour
 
         // Add the host to the list of available lobbies
         _availableLobbies.Add(new Lobby { name = lobbyName, port = port });
+
+        // Update the port display
+        FindFirstObjectByType<NetworkStatsUI>().UpdatePort();
     }
 
     private int GetRandomUnusedPort()
@@ -100,6 +103,9 @@ public class NetworkManagerUI : NetworkBehaviour
         NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Port = (ushort)port;
         NetworkManager.Singleton.StartClient();
         networkManagerCanvas.enabled = false;
+        
+        // Update the port display
+        FindFirstObjectByType<NetworkStatsUI>().UpdatePort();
     }
 
     private void OnAvailableLobbiesChanged(NetworkListEvent<Lobby> changeEvent)

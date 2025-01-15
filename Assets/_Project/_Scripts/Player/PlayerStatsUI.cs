@@ -26,7 +26,7 @@ public class PlayerStatsUI : NetworkBehaviour
             return;
         }
 
-        playerNetworkStats.Health.OnValueChanged += OnHealthValueChanged;
+        playerNetworkStats.health.OnValueChanged += OnHealthValueChanged;
         SetPlayerNumberText();
         playerCanvas.enabled = true;
     }
@@ -35,7 +35,7 @@ public class PlayerStatsUI : NetworkBehaviour
     {
         base.OnNetworkDespawn();
         if (!IsOwner) return;
-        playerNetworkStats.Health.OnValueChanged -= OnHealthValueChanged;
+        playerNetworkStats.health.OnValueChanged -= OnHealthValueChanged;
     }
 
     private void OnHealthValueChanged(int previousValue, int newValue)
