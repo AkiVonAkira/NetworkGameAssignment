@@ -1,4 +1,3 @@
-using _Project;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -57,17 +56,19 @@ public class GameManager : NetworkBehaviour
 
     private void StartGame()
     {
-        foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
-        {
-            var spawnPosition = client.ClientId == 0
-                ? player1SpawnPosition.GetRandomSpawnPosition()
-                : player2SpawnPosition.GetRandomSpawnPosition();
-            var player = Instantiate(NetworkManager.Singleton.NetworkConfig.PlayerPrefab, spawnPosition,
-                Quaternion.identity);
-            player.GetComponent<NetworkObject>().SpawnAsPlayerObject(client.ClientId);
+        foreach (var client in NetworkManager.Singleton.ConnectedClientsList) InitializePlayer(client.ClientId);
+    }
 
-            _networkStatsUI.UpdatePort();
-        }
+    private void InitializePlayer(ulong clientId)
+    {
+        var playerObject = NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject;
+        var spawnPosition = clientId == 0
+            ? player1SpawnPosition.GetRandomSpawnPosition()
+            : player2SpawnPosition.GetRandomSpawnPosition();
+        playerObject.transform.position = spawnPosition;
+        playerObject.transform.rotation = Quaternion.identity;
+
+        _networkStatsUI.UpdatePort();
     }
 
     private void EndGame()

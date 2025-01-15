@@ -1969,6 +1969,7 @@ GameObject:
   - component: {fileID: 8677789170063705273}
   - component: {fileID: 7507292544148711467}
   - component: {fileID: 6254248595989553475}
+  - component: {fileID: 317381516693775017}
   - component: {fileID: 2889882146207063811}
   - component: {fileID: 225034712005855560}
   - component: {fileID: 3998935486017829989}
@@ -1977,7 +1978,6 @@ GameObject:
   - component: {fileID: 5517639324777613318}
   - component: {fileID: 2098547037066553145}
   - component: {fileID: -7659029951951038178}
-  - component: {fileID: -984758497257402838}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2095,6 +2095,23 @@ MonoBehaviour:
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
+--- !u!114 &317381516693775017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6167442470295781473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909a3a50ecf2e5f4895c3c1cb8049c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  characterController: {fileID: 4234775422443415896}
+  firstPersonController: {fileID: 7507292544148711467}
+  playerInput: {fileID: 1832546378773589156}
+  playerCamera: {fileID: 4119628737119204038}
 --- !u!114 &2889882146207063811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2353,14 +2370,6 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!81 &-984758497257402838
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6167442470295781473}
-  m_Enabled: 1
 --- !u!1 &6432602733593495871
 GameObject:
   m_ObjectHideFlags: 0

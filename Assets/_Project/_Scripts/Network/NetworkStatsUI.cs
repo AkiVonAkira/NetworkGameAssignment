@@ -19,10 +19,8 @@ public class NetworkStatsUI : MonoBehaviour
 
     private void Update()
     {
-        if (NetworkManager.Singleton != null && (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsHost))
-        {
-            UpdatePing();
-        }
+        if (NetworkManager.Singleton != null &&
+            (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsHost)) UpdatePing();
         UpdateFPS();
     }
 

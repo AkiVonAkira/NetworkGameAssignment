@@ -7,49 +7,23 @@ namespace _Project
 {
     public class InputSystem : MonoBehaviour
     {
-        [Header("Character Input Values")]
-        public Vector2 move;
+        [Header("Character Input Values")] public Vector2 move;
+
         public Vector2 look;
         public bool jump;
         public bool sprint;
         public bool crouch;
 
-        [Header("Movement Settings")]
-        public bool analogMovement;
+        [Header("Movement Settings")] public bool analogMovement;
 
-        [Header("Mouse Cursor Settings")]
-        public bool cursorLocked = true;
+        [Header("Mouse Cursor Settings")] public bool cursorLocked = true;
+
         public bool cursorInputForLook = true;
 
-#if ENABLE_INPUT_SYSTEM
-        public void OnMove(InputValue value)
+        private void OnApplicationFocus(bool hasFocus)
         {
-            MoveInput(value.Get<Vector2>());
+            SetCursorState(cursorLocked);
         }
-
-        public void OnLook(InputValue value)
-        {
-            if(cursorInputForLook)
-            {
-                LookInput(value.Get<Vector2>());
-            }
-        }
-
-        public void OnJump(InputValue value)
-        {
-            JumpInput(value.isPressed);
-        }
-
-        public void OnSprint(InputValue value)
-        {
-            SprintInput(value.isPressed);
-        }
-
-        public void OnCrouch(InputValue value)
-        {
-            CrouchInput(value.isPressed);
-        }
-#endif
 
 
         public void MoveInput(Vector2 newMoveDirection)
@@ -77,15 +51,36 @@ namespace _Project
             crouch = newCrouchState;
         }
 
-        private void OnApplicationFocus(bool hasFocus)
-        {
-            SetCursorState(cursorLocked);
-        }
-
         private void SetCursorState(bool newState)
         {
             Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
         }
-    }
 
+#if ENABLE_INPUT_SYSTEM
+        public void OnMove(InputValue value)
+        {
+            MoveInput(value.Get<Vector2>());
+        }
+
+        public void OnLook(InputValue value)
+        {
+            if (cursorInputForLook) LookInput(value.Get<Vector2>());
+        }
+
+        public void OnJump(InputValue value)
+        {
+            JumpInput(value.isPressed);
+        }
+
+        public void OnSprint(InputValue value)
+        {
+            SprintInput(value.isPressed);
+        }
+
+        public void OnCrouch(InputValue value)
+        {
+            CrouchInput(value.isPressed);
+        }
+#endif
+    }
 }

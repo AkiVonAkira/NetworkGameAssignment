@@ -11,8 +11,10 @@ namespace _Project
 #endif
     public class FirstPersonController : MonoBehaviour
     {
-        [Header("Player")]
-        public float MoveSpeed = 2.0f;
+        private const float _threshold = 0.01f;
+
+        [Header("Player")] public float MoveSpeed = 2.0f;
+
         public float SprintSpeed = 5.335f;
         public float CrouchSpeed = 1.0f;
         public float ClimbSpeed = 3.0f;
@@ -23,51 +25,49 @@ namespace _Project
         public float JumpTimeout = 0.50f;
         public float FallTimeout = 0.15f;
 
-        [Header("Player Grounded")]
-        public bool Grounded = true;
+        [Header("Player Grounded")] public bool Grounded = true;
+
         public float GroundedOffset = -0.14f;
         public float GroundedRadius = 0.28f;
         public LayerMask GroundLayers;
 
-        [Header("Camera")]
-        public GameObject PlayerCamera;
+        [Header("Camera")] public GameObject PlayerCamera;
+
         public float TopClamp = 70.0f;
         public float BottomClamp = -30.0f;
-        public float CameraAngleOverride = 0.0f;
-        public bool LockCameraPosition = false;
+        public float CameraAngleOverride;
+        public bool LockCameraPosition;
 
         public AudioClip LandingAudioClip;
         public AudioClip[] FootstepAudioClips;
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+        private Animator _animator;
+        private int _animIDFreeFall;
+        private int _animIDGrounded;
+        private int _animIDJump;
+        private int _animIDMotionSpeed;
+
+        private int _animIDSpeed;
+        private float _cinemachineTargetPitch;
 
         private float _cinemachineTargetYaw;
-        private float _cinemachineTargetPitch;
-        private float _speed;
-        private float _rotationVelocity;
-        private float _verticalVelocity;
-        private float _terminalVelocity = 53.0f;
-        private float _jumpTimeoutDelta;
-        private float _fallTimeoutDelta;
-        private bool _isCrouching;
-        internal bool IsClimbing;
-        private bool _crouchInputHeld;
 
         private CharacterController _controller;
+        private bool _crouchInputHeld;
+        private float _fallTimeoutDelta;
+        private bool _hasAnimator;
+        private InputSystem _input;
+        private bool _isCrouching;
+        private float _jumpTimeoutDelta;
+        private GameObject _mainCamera;
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
 #endif
-        private InputSystem _input;
-        private GameObject _mainCamera;
-        private Animator _animator;
-        private bool _hasAnimator;
-
-        private int _animIDSpeed;
-        private int _animIDGrounded;
-        private int _animIDJump;
-        private int _animIDFreeFall;
-        private int _animIDMotionSpeed;
-
-        private const float _threshold = 0.01f;
+        private float _rotationVelocity;
+        private float _speed;
+        private readonly float _terminalVelocity = 53.0f;
+        private float _verticalVelocity;
+        internal bool IsClimbing;
 
         private bool IsCurrentDeviceMouse
         {
@@ -83,10 +83,7 @@ namespace _Project
 
         private void Awake()
         {
-            if (_mainCamera == null)
-            {
-                _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-            }
+            if (_mainCamera == null) _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         }
 
         private void Start()
@@ -132,13 +129,12 @@ namespace _Project
 
         private void GroundedCheck()
         {
-            Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
-            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+            var spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset,
+                transform.position.z);
+            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
+                QueryTriggerInteraction.Ignore);
 
-            if (_hasAnimator)
-            {
-                _animator.SetBool(_animIDGrounded, Grounded);
-            }
+            if (_hasAnimator) _animator.SetBool(_animIDGrounded, Grounded);
         }
 
         private void CameraRotation()
@@ -147,7 +143,7 @@ namespace _Project
 
             if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
             {
-                float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
+                var deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
                 _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
                 _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
@@ -156,22 +152,25 @@ namespace _Project
             _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
             _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
-            PlayerCamera.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
+            PlayerCamera.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
+                _cinemachineTargetYaw, 0.0f);
         }
 
         private void Move()
         {
-            float targetSpeed = _input.sprint ? SprintSpeed : (_isCrouching ? CrouchSpeed : MoveSpeed);
+            var targetSpeed = _input.sprint ? SprintSpeed : _isCrouching ? CrouchSpeed : MoveSpeed;
 
             if (_input.move == Vector2.zero) targetSpeed = 0.0f;
 
-            float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
-            float speedOffset = 0.1f;
-            float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
+            var currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+            var speedOffset = 0.1f;
+            var inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
 
-            if (currentHorizontalSpeed < targetSpeed - speedOffset || currentHorizontalSpeed > targetSpeed + speedOffset)
+            if (currentHorizontalSpeed < targetSpeed - speedOffset ||
+                currentHorizontalSpeed > targetSpeed + speedOffset)
             {
-                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
+                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
+                    Time.deltaTime * SpeedChangeRate);
                 _speed = Mathf.Round(_speed * 1000f) / 1000f;
             }
             else
@@ -179,25 +178,33 @@ namespace _Project
                 _speed = targetSpeed;
             }
 
-            Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
+            var inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
 
             if (_input.move != Vector2.zero)
             {
-                float targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _mainCamera.transform.eulerAngles.y;
-                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref _rotationVelocity, RotationSmoothTime);
+                var targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
+                                     _mainCamera.transform.eulerAngles.y;
+                var rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref _rotationVelocity,
+                    RotationSmoothTime);
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
-            Vector3 targetDirection = Quaternion.Euler(0.0f, transform.eulerAngles.y, 0.0f) * Vector3.forward;
+            var targetDirection = Quaternion.Euler(0.0f, transform.eulerAngles.y, 0.0f) * Vector3.forward;
 
             if (IsClimbing)
             {
-                Vector3 climbDirection = new Vector3(0, _input.move.y * ClimbSpeed, 0);
+                var climbDirection = new Vector3(0, _input.move.y * ClimbSpeed, 0);
                 _controller.Move(climbDirection * Time.deltaTime);
+                if (_controller.isGrounded && _input.move.y > 0)
+                {
+                    IsClimbing = false;
+                    _controller.slopeLimit = 45.0f;
+                }
             }
             else
             {
-                _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+                _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
+                                 new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
             }
 
             // if (IsClimbing)
@@ -234,25 +241,16 @@ namespace _Project
             {
                 _fallTimeoutDelta = FallTimeout;
 
-                if (_verticalVelocity < 0.0f)
-                {
-                    _verticalVelocity = -2f;
-                }
+                if (_verticalVelocity < 0.0f) _verticalVelocity = -2f;
 
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 
-                    if (_hasAnimator)
-                    {
-                        _animator.SetBool(_animIDJump, true);
-                    }
+                    if (_hasAnimator) _animator.SetBool(_animIDJump, true);
                 }
 
-                if (_jumpTimeoutDelta >= 0.0f)
-                {
-                    _jumpTimeoutDelta -= Time.deltaTime;
-                }
+                if (_jumpTimeoutDelta >= 0.0f) _jumpTimeoutDelta -= Time.deltaTime;
             }
             else
             {
@@ -264,19 +262,13 @@ namespace _Project
                 }
                 else
                 {
-                    if (_hasAnimator)
-                    {
-                        _animator.SetBool(_animIDFreeFall, true);
-                    }
+                    if (_hasAnimator) _animator.SetBool(_animIDFreeFall, true);
                 }
 
                 _input.jump = false;
             }
 
-            if (_verticalVelocity < _terminalVelocity)
-            {
-                _verticalVelocity += Gravity * Time.deltaTime;
-            }
+            if (_verticalVelocity < _terminalVelocity) _verticalVelocity += Gravity * Time.deltaTime;
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
@@ -289,21 +281,19 @@ namespace _Project
         private void OnFootstep(AnimationEvent animationEvent)
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
-            {
                 if (FootstepAudioClips.Length > 0)
                 {
                     var index = Random.Range(0, FootstepAudioClips.Length);
-                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center),
+                        FootstepAudioVolume);
                 }
-            }
         }
 
         private void OnLand(AnimationEvent animationEvent)
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
-            {
-                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
-            }
+                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center),
+                    FootstepAudioVolume);
         }
     }
 }

@@ -5,19 +5,19 @@ using UnityEngine.InputSystem;
 
 public class ClientPlayerMove : NetworkBehaviour
 {
-    [SerializeField] private CharacterController mCharacterController;
+    [SerializeField] private CharacterController characterController;
 
-    [SerializeField] private FirstPersonController mFirstPersonController;
+    [SerializeField] private FirstPersonController firstPersonController;
 
-    [SerializeField] private PlayerInput mPlayerInput;
+    [SerializeField] private PlayerInput playerInput;
 
-    [SerializeField] private Transform mCameraFollow;
+    [SerializeField] private Transform playerCamera;
 
     private void Awake()
     {
-        mCharacterController.enabled = false;
-        mFirstPersonController.enabled = false;
-        mPlayerInput.enabled = false;
+        characterController.enabled = false;
+        firstPersonController.enabled = false;
+        playerInput.enabled = false;
     }
 
     public override void OnNetworkSpawn()
@@ -29,15 +29,15 @@ public class ClientPlayerMove : NetworkBehaviour
         if (!IsOwner)
         {
             enabled = false;
-            mCharacterController.enabled = false;
-            mFirstPersonController.enabled = false;
-            mPlayerInput.enabled = false;
+            characterController.enabled = false;
+            firstPersonController.enabled = false;
+            playerInput.enabled = false;
             return;
         }
 
         // This is ours now
-        mCharacterController.enabled = true;
-        mFirstPersonController.enabled = true;
-        mPlayerInput.enabled = true;
+        characterController.enabled = true;
+        firstPersonController.enabled = true;
+        playerInput.enabled = true;
     }
 }
