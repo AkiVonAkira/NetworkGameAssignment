@@ -27,6 +27,7 @@ public class NetworkManagerUI : NetworkBehaviour
 
     private GameSessionAnnouncer _announcer;
     private GameSessionDiscoverer _discoverer;
+    private NetworkStatsUI _networkStatsUI;
 
     private void Awake()
     {
@@ -40,10 +41,19 @@ public class NetworkManagerUI : NetworkBehaviour
     {
         networkManagerCanvas.enabled = true;
         ShowHostList();
+
         _announcer = gameObject.GetComponent<GameSessionAnnouncer>();
         _discoverer = gameObject.GetComponent<GameSessionDiscoverer>();
+        _networkStatsUI = FindFirstObjectByType<NetworkStatsUI>();
+
         _discoverer.OnGameSessionDiscovered += AddHostToList;
         UpdateHostList();
+    }
+
+    private new void OnDestroy()
+    {
+        _announcer.Dispose();
+        _discoverer.Dispose();
     }
 
     private void ShowHostForm()
@@ -58,6 +68,12 @@ public class NetworkManagerUI : NetworkBehaviour
         hostForm.SetActive(false);
     }
 
+    public void EnableUI()
+    {
+        networkManagerCanvas.enabled = true;
+        ShowHostList();
+    }
+
     private void StartHost()
     {
         var lobbyName = lobbyNameInput.text;
@@ -68,16 +84,19 @@ public class NetworkManagerUI : NetworkBehaviour
         }
 
         var port = GetRandomUnusedPort();
-        NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Port = (ushort)port;
-        NetworkManager.Singleton.StartHost();
-        ShowHostList();
-        networkManagerCanvas.enabled = false;
+        var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
+        transport.ConnectionData.Port = (ushort)port;
 
-        // Start broadcasting the game session
-        _announcer.Initialize(port, lobbyName);
-
-        // Update the port display
-        FindFirstObjectByType<NetworkStatsUI>().UpdatePort();
+        if (NetworkManager.Singleton.StartHost())
+        {
+            _announcer.Initialize(port, lobbyName);
+            networkManagerCanvas.enabled = false;
+            _networkStatsUI?.UpdatePort();
+        }
+        else
+        {
+            Debug.LogError("Failed to start host.");
+        }
     }
 
     private int GetRandomUnusedPort()
@@ -136,11 +155,5 @@ public class NetworkManagerUI : NetworkBehaviour
 
         // Update the port display
         FindFirstObjectByType<NetworkStatsUI>().UpdatePort();
-    }
-
-    private new void OnDestroy()
-    {
-        _announcer.Dispose();
-        _discoverer.Dispose();
     }
 }

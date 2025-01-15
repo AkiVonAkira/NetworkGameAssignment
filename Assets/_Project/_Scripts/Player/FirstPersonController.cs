@@ -41,6 +41,7 @@ namespace _Project
         public AudioClip LandingAudioClip;
         public AudioClip[] FootstepAudioClips;
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+        private readonly float _terminalVelocity = 53.0f;
         private Animator _animator;
         private int _animIDFreeFall;
         private int _animIDGrounded;
@@ -65,7 +66,6 @@ namespace _Project
 #endif
         private float _rotationVelocity;
         private float _speed;
-        private readonly float _terminalVelocity = 53.0f;
         private float _verticalVelocity;
         internal bool IsClimbing;
 

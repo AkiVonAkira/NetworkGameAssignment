@@ -6,17 +6,30 @@ using UnityEngine;
 
 public class GameSessionAnnouncer : MonoBehaviour, IDisposable
 {
-    private UdpClient _udpClient;
+    private const string GameSessionIdentifier = "1v1ShooterGameGameSession";
     private IPEndPoint _broadcastEndPoint;
+    private bool _isDisposed;
     private string _lobbyName;
     private int _port;
-    private bool _isDisposed;
-
-    private const string GameSessionIdentifier = "1v1ShooterGameGameSession";
+    private UdpClient _udpClient;
 
     private void Start()
     {
         InitializeUdpClient();
+    }
+
+    private void OnApplicationQuit()
+    {
+        Dispose();
+    }
+
+    public void Dispose()
+    {
+        if (_isDisposed) return;
+
+        _isDisposed = true;
+        CancelInvoke(nameof(BroadcastGameSession));
+        DisposeUdpClient();
     }
 
     public void Initialize(int port, string lobbyName)
@@ -59,18 +72,13 @@ public class GameSessionAnnouncer : MonoBehaviour, IDisposable
         }
     }
 
-    private void OnApplicationQuit()
+    private void DisposeUdpClient()
     {
-        Dispose();
-    }
-
-    public void Dispose()
-    {
-        if (_isDisposed) return;
-
-        _isDisposed = true;
-        CancelInvoke(nameof(BroadcastGameSession));
-        _udpClient?.Close();
-        _udpClient = null;
+        if (_udpClient != null)
+        {
+            _udpClient.Close();
+            _udpClient = null;
+            Debug.Log("GameSessionAnnouncer: UdpClient disposed.");
+        }
     }
 }
