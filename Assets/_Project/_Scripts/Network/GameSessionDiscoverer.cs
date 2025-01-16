@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using UnityEngine;
@@ -30,16 +31,25 @@ public class GameSessionDiscoverer : MonoBehaviour, IDisposable
 
     public event Action<string, int> OnGameSessionDiscovered;
 
-    public void RefreshReceiver()
+    public void StartDiscovery()
     {
-        DisposeUdpClient();
+        Dispose();
         InitializeUdpClient();
+    }
+
+    public void StopDiscovery()
+    {
+        Dispose();
     }
 
     private void InitializeUdpClient()
     {
-        _udpClient = new UdpClient(7788);
+        _udpClient = new UdpClient
+        {
+            Client = { ExclusiveAddressUse = false }
+        };
         _udpClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+        _udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, 7788));
         StartListening();
     }
 
@@ -63,23 +73,7 @@ public class GameSessionDiscoverer : MonoBehaviour, IDisposable
                 var result = await _udpClient.ReceiveAsync();
                 var message = Encoding.UTF8.GetString(result.Buffer);
 
-                var parts = message.Split('|');
-                if (parts.Length == 3 && parts[0] == GameSessionIdentifier)
-                {
-                    var key = $"{parts[1]}|{parts[2]}"; // Unique key: lobbyName|port
-                    if (!_activeSessions.ContainsKey(key))
-                    {
-                        _activeSessions[key] = DateTime.UtcNow;
-                        var lobbyName = parts[1];
-                        var port = int.Parse(parts[2]);
-                        OnGameSessionDiscovered?.Invoke(lobbyName, port);
-                    }
-                    else
-                    {
-                        // Update the timestamp for the session
-                        _activeSessions[key] = DateTime.UtcNow;
-                    }
-                }
+                ReadMessage(message);
             }
             catch (Exception ex)
             {
@@ -90,7 +84,28 @@ public class GameSessionDiscoverer : MonoBehaviour, IDisposable
         }
     }
 
-    private void DisposeUdpClient()
+    private void ReadMessage(string message)
+    {
+        var parts = message.Split('|');
+        if (parts.Length == 3 && parts[0] == GameSessionIdentifier)
+        {
+            var key = $"{parts[1]}|{parts[2]}"; // Unique key: lobbyName|port
+            if (!_activeSessions.ContainsKey(key))
+            {
+                _activeSessions[key] = DateTime.UtcNow;
+                var lobbyName = parts[1];
+                var port = int.Parse(parts[2]);
+                OnGameSessionDiscovered?.Invoke(lobbyName, port);
+            }
+            else
+            {
+                // Update the timestamp for the session
+                _activeSessions[key] = DateTime.UtcNow;
+            }
+        }
+    }
+
+    public void DisposeUdpClient()
     {
         if (_udpClient != null)
         {

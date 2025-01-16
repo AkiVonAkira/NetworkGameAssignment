@@ -13,6 +13,7 @@ namespace _Project
         public bool jump;
         public bool sprint;
         public bool crouch;
+        public bool pause;
 
         [Header("Movement Settings")] public bool analogMovement;
 
@@ -51,6 +52,11 @@ namespace _Project
             crouch = newCrouchState;
         }
 
+        public void PauseInput(bool newPauseState)
+        {
+            pause = newPauseState;
+        }
+
         private void SetCursorState(bool newState)
         {
             Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
@@ -80,6 +86,11 @@ namespace _Project
         public void OnCrouch(InputValue value)
         {
             CrouchInput(value.isPressed);
+        }
+
+        public void OnPause(InputValue value)
+        {
+            PauseInput(value.isPressed);
         }
 #endif
     }

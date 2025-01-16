@@ -39,21 +39,21 @@ public class NetworkManagerUI : NetworkBehaviour
 
     private void Start()
     {
-        networkManagerCanvas.enabled = true;
-        ShowHostList();
-
         _announcer = gameObject.GetComponent<GameSessionAnnouncer>();
         _discoverer = gameObject.GetComponent<GameSessionDiscoverer>();
         _networkStatsUI = FindFirstObjectByType<NetworkStatsUI>();
 
         _discoverer.OnGameSessionDiscovered += AddHostToList;
-        UpdateHostList();
+
+        EnableUI();
     }
 
     private new void OnDestroy()
     {
         _announcer.Dispose();
+        _announcer.DisposeUdpClient();
         _discoverer.Dispose();
+        _discoverer.DisposeUdpClient();
     }
 
     private void ShowHostForm()
@@ -70,7 +70,7 @@ public class NetworkManagerUI : NetworkBehaviour
 
     public void EnableUI()
     {
-        networkManagerCanvas.enabled = true;
+        networkManagerCanvas.gameObject.SetActive(true);
         ShowHostList();
     }
 
@@ -87,8 +87,11 @@ public class NetworkManagerUI : NetworkBehaviour
         var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
         transport.ConnectionData.Port = (ushort)port;
 
+        _announcer.InitializeUdpClient();
+
         if (NetworkManager.Singleton.StartHost())
         {
+            _discoverer.StopDiscovery();
             _announcer.Initialize(port, lobbyName);
             networkManagerCanvas.enabled = false;
             _networkStatsUI?.UpdatePort();
@@ -144,7 +147,7 @@ public class NetworkManagerUI : NetworkBehaviour
         foreach (Transform child in hostListContent) Destroy(child.gameObject);
 
         // Trigger discovery of game sessions
-        _discoverer.RefreshReceiver();
+        _discoverer.StartDiscovery();
     }
 
     private void JoinLobby(int port)
@@ -155,5 +158,15 @@ public class NetworkManagerUI : NetworkBehaviour
 
         // Update the port display
         FindFirstObjectByType<NetworkStatsUI>().UpdatePort();
+    }
+
+    public void StopBroadcasting()
+    {
+        _announcer.Dispose();
+    }
+
+    public void StopDiscovering()
+    {
+        _discoverer.Dispose();
     }
 }

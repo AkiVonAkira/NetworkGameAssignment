@@ -13,11 +13,6 @@ public class GameSessionAnnouncer : MonoBehaviour, IDisposable
     private int _port;
     private UdpClient _udpClient;
 
-    private void Start()
-    {
-        InitializeUdpClient();
-    }
-
     private void OnApplicationQuit()
     {
         Dispose();
@@ -38,7 +33,7 @@ public class GameSessionAnnouncer : MonoBehaviour, IDisposable
         _lobbyName = lobbyName;
     }
 
-    private void InitializeUdpClient()
+    public void InitializeUdpClient()
     {
         _udpClient = new UdpClient
         {
@@ -72,7 +67,7 @@ public class GameSessionAnnouncer : MonoBehaviour, IDisposable
         }
     }
 
-    private void DisposeUdpClient()
+    public void DisposeUdpClient()
     {
         if (_udpClient != null)
         {

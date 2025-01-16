@@ -4,15 +4,16 @@ using UnityEngine.UI;
 
 namespace _Project.UI
 {
-    public class PauseMenuUI : MonoBehaviour
+    public class PauseMenuUI : Singleton<PauseMenuUI>
     {
         [SerializeField] private Button quitButton;
         [SerializeField] private Button leaveServerButton;
         [SerializeField] private Canvas pauseMenuCanvas;
         [SerializeField] private NetworkManagerUI networkManagerUI;
 
-        private void Awake()
+        private new void Awake()
         {
+            base.Awake();
             quitButton.onClick.AddListener(QuitGame);
             leaveServerButton.onClick.AddListener(LeaveServer);
         }
@@ -41,6 +42,7 @@ namespace _Project.UI
             networkManagerUI.gameObject.SetActive(true);
             pauseMenuCanvas.enabled = false;
             Time.timeScale = 1;
+            networkManagerUI.EnableUI();
         }
     }
 }

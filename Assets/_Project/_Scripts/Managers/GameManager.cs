@@ -6,6 +6,7 @@ public class GameManager : NetworkBehaviour
     public PlayerSpawnPosition player1SpawnPosition;
     public PlayerSpawnPosition player2SpawnPosition;
 
+    private NetworkManagerUI _networkManagerUI;
     private NetworkStatsUI _networkStatsUI;
     private int _playerCount;
 
@@ -14,6 +15,7 @@ public class GameManager : NetworkBehaviour
         if (player1SpawnPosition == null || player2SpawnPosition == null)
             Debug.LogError("Please assign the player spawn positions.");
 
+        _networkManagerUI = GetComponent<NetworkManagerUI>();
         _networkStatsUI = FindFirstObjectByType<NetworkStatsUI>();
         if (_networkStatsUI == null) Debug.LogError("NetworkStatsUI not found in the scene.");
     }
@@ -44,6 +46,7 @@ public class GameManager : NetworkBehaviour
             return;
         }
 
+        _networkManagerUI.StopDiscovering();
         _playerCount++;
         if (_playerCount == 2) StartGame();
     }
@@ -56,6 +59,7 @@ public class GameManager : NetworkBehaviour
 
     private void StartGame()
     {
+        _networkManagerUI.StopBroadcasting();
         foreach (var client in NetworkManager.Singleton.ConnectedClientsList) InitializePlayer(client.ClientId);
     }
 
