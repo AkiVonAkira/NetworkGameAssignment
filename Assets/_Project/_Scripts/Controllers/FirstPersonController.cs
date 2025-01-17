@@ -15,8 +15,8 @@ namespace _Project
     {
         private const float Threshold = 0.01f;
 
-        [Header("Player")] public float moveSpeed = 2.0f;
-
+        [Header("Player")]
+        public float moveSpeed = 2.0f;
         public float sprintSpeed = 3.335f;
         public float crouchSpeed = 1.25f;
         public float climbSpeed = 8.0f;
@@ -27,50 +27,51 @@ namespace _Project
         public float jumpTimeout = 0.3f;
         public float fallTimeout = 0.15f;
 
-        [Header("Player Grounded")] public bool grounded = true;
-
+        [Header("Player Grounded")]
+        public bool grounded = true;
         public float groundedOffset = -0.14f;
         public float groundedRadius = 0.28f;
         public LayerMask groundLayers;
 
-        [Header("Camera")] public GameObject playerCamera;
-
+        [Header("Camera")]
+        public GameObject playerCamera;
         public float topClamp = 70.0f;
         public float bottomClamp = -30.0f;
         public float cameraAngleOverride;
         public bool lockCameraPosition;
 
+        [Header("Audio")]
         public AudioClip landingAudioClip;
         public AudioClip[] footstepAudioClips;
         [Range(0, 1)] public float footstepAudioVolume = 0.3f;
-        private readonly float _terminalVelocity = 53.0f;
+
         private Animator _animator;
-        private int _animIDFreeFall;
-        private int _animIDGrounded;
-        private int _animIDJump;
-        private int _animIDMotionSpeed;
-
-        private int _animIDSpeed;
-        private float _cinemachineTargetPitch;
-
-        private float _cinemachineTargetYaw;
-
         private CharacterController _controller;
-        private bool _crouchInputHeld;
-        private float _fallTimeoutDelta;
-        private bool _hasAnimator;
         private InputSystem _input;
-        private bool _isCrouching;
-        private float _jumpTimeoutDelta;
         private GameObject _mainCamera;
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
 #endif
+
+        private readonly float _terminalVelocity = 53.0f;
+        private int _animIDFreeFall;
+        private int _animIDGrounded;
+        private int _animIDJump;
+        private int _animIDMotionSpeed;
+        private int _animIDSpeed;
+        private float _cinemachineTargetPitch;
+        private float _cinemachineTargetYaw;
+        private float _fallTimeoutDelta;
+        private float _jumpTimeoutDelta;
         private float _rotationVelocity;
         private float _speed;
         private float _verticalVelocity;
-        internal bool IsClimbing;
+        private bool _hasAnimator;
+        private bool _crouchInputHeld;
+        private bool _isCrouching;
 
+        internal bool IsClimbing;
+        
         private bool IsCurrentDeviceMouse
         {
             get
@@ -93,12 +94,12 @@ namespace _Project
             _cinemachineTargetYaw = playerCamera.transform.rotation.eulerAngles.y;
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<InputSystem>();
+            _hasAnimator = TryGetComponent(out _animator);
 #if ENABLE_INPUT_SYSTEM
             _playerInput = GetComponent<PlayerInput>();
 #else
             Debug.LogError("PlayerInput component is missing.");
 #endif
-            _hasAnimator = TryGetComponent(out _animator);
 
             _jumpTimeoutDelta = jumpTimeout;
             _fallTimeoutDelta = fallTimeout;
@@ -115,13 +116,11 @@ namespace _Project
             JumpAndGravity();
             GroundedCheck();
             Move();
-
-            // use input system escape key to call pause menu
-            if (_input.pause) PauseMenuUI.Instance.TogglePauseMenu();
         }
 
         private void LateUpdate()
         {
+            if (!IsOwner) return;
             CameraRotation();
         }
 
@@ -136,10 +135,8 @@ namespace _Project
 
         private void GroundedCheck()
         {
-            var spherePosition = new Vector3(transform.position.x, transform.position.y - groundedOffset,
-                transform.position.z);
-            grounded = Physics.CheckSphere(spherePosition, groundedRadius, groundLayers,
-                QueryTriggerInteraction.Ignore);
+            var spherePosition = new Vector3(transform.position.x, transform.position.y - groundedOffset, transform.position.z);
+            grounded = Physics.CheckSphere(spherePosition, groundedRadius, groundLayers, QueryTriggerInteraction.Ignore);
 
             if (_hasAnimator) _animator.SetBool(_animIDGrounded, grounded);
         }
@@ -159,34 +156,21 @@ namespace _Project
             _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
             _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, bottomClamp, topClamp);
 
-            playerCamera.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + cameraAngleOverride,
-                _cinemachineTargetYaw, 0.0f);
+            playerCamera.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + cameraAngleOverride, _cinemachineTargetYaw, 0.0f);
         }
 
         private void Move()
         {
-            // Determine target speed based on input and state
             var targetSpeed = DetermineTargetSpeed();
-
-            // Adjust speed to match target speed
             AdjustSpeed(targetSpeed);
 
-            // Calculate movement direction
             var inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
 
-            // Handle player rotation if there is movement input
             if (_input.move != Vector2.zero) RotatePlayer(inputDirection);
 
-            // Apply movement
             ApplyMovement();
-
-            // Handle climbing
             HandleClimbing();
-
-            // Handle crouching
             HandleCrouching();
-
-            // Update animator parameters
             UpdateAnimator();
         }
 
@@ -194,8 +178,7 @@ namespace _Project
         {
             if (_input.move == Vector2.zero) return 0.0f;
 
-            if (_input.sprint)
-                return sprintSpeed;
+            if (_input.sprint) return sprintSpeed;
 
             return _isCrouching ? crouchSpeed : moveSpeed;
         }
@@ -208,8 +191,7 @@ namespace _Project
 
             if (Mathf.Abs(currentHorizontalSpeed - targetSpeed) > speedOffset)
             {
-                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
-                    Time.deltaTime * speedChangeRate);
+                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * speedChangeRate);
                 _speed = Mathf.Round(_speed * 1000f) / 1000f;
             }
             else
@@ -220,18 +202,15 @@ namespace _Project
 
         private void RotatePlayer(Vector3 inputDirection)
         {
-            var targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
-                                 _mainCamera.transform.eulerAngles.y;
-            var rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref _rotationVelocity,
-                rotationSmoothTime);
+            var targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _mainCamera.transform.eulerAngles.y;
+            var rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref _rotationVelocity, rotationSmoothTime);
             transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
         }
 
         private void ApplyMovement()
         {
             var targetDirection = Quaternion.Euler(0.0f, transform.eulerAngles.y, 0.0f) * Vector3.forward;
-            _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
-                             new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+            _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
         }
 
         private void HandleClimbing()
@@ -271,10 +250,8 @@ namespace _Project
         {
             if (_input == null) return;
 
-            if (grounded)
-                Grounded();
-            else
-                Jump();
+            if (grounded) Grounded();
+            else Jump();
 
             if (_verticalVelocity < _terminalVelocity) _verticalVelocity += gravity * Time.deltaTime;
         }
@@ -316,6 +293,15 @@ namespace _Project
             if (lfAngle < -360f) lfAngle += 360f;
             if (lfAngle > 360f) lfAngle -= 360f;
             return Mathf.Clamp(lfAngle, lfMin, lfMax);
+        }
+
+        public void ReceiveInput(Vector2 move, Vector2 look, bool jump, bool sprint, bool crouch)
+        {
+            _input.move = move;
+            _input.look = look;
+            _input.jump = jump;
+            _input.sprint = sprint;
+            _input.crouch = crouch;
         }
 
         // private void OnFootstep(AnimationEvent animationEvent)

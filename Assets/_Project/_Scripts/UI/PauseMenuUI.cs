@@ -39,10 +39,9 @@ namespace _Project.UI
             if (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsHost)
                 NetworkManager.Singleton.Shutdown();
 
-            networkManagerUI.gameObject.SetActive(true);
+            networkManagerUI.networkManagerCanvas.enabled = true;
             pauseMenuCanvas.enabled = false;
             Time.timeScale = 1;
-            networkManagerUI.EnableUI();
         }
     }
 }

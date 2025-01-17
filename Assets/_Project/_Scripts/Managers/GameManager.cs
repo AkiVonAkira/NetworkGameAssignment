@@ -46,7 +46,7 @@ public class GameManager : NetworkBehaviour
             return;
         }
 
-        _networkManagerUI.StopDiscovering();
+        // _networkManagerUI.StopDiscovering();
         _playerCount++;
         if (_playerCount == 2) StartGame();
     }
@@ -59,7 +59,7 @@ public class GameManager : NetworkBehaviour
 
     private void StartGame()
     {
-        _networkManagerUI.StopBroadcasting();
+        // _networkManagerUI.StopBroadcasting();
         foreach (var client in NetworkManager.Singleton.ConnectedClientsList) InitializePlayer(client.ClientId);
     }
 
