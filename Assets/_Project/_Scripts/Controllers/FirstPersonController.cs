@@ -71,7 +71,7 @@ namespace _Project
         private bool _isCrouching;
 
         internal bool IsClimbing;
-        
+
         private bool IsCurrentDeviceMouse
         {
             get
@@ -113,8 +113,8 @@ namespace _Project
 
             _hasAnimator = TryGetComponent(out _animator);
 
-            JumpAndGravity();
             GroundedCheck();
+            JumpAndGravity();
             Move();
         }
 
@@ -304,22 +304,20 @@ namespace _Project
             _input.crouch = crouch;
         }
 
-        // private void OnFootstep(AnimationEvent animationEvent)
-        // {
-        //     if (animationEvent.animatorClipInfo.weight > 0.5f)
-        //         if (footstepAudioClips.Length > 0)
-        //         {
-        //             var index = Random.Range(0, footstepAudioClips.Length);
-        //             AudioSource.PlayClipAtPoint(footstepAudioClips[index], transform.TransformPoint(_controller.center),
-        //                 footstepAudioVolume);
-        //         }
-        // }
+        private void OnFootstep(AnimationEvent animationEvent)
+        {
+            if (animationEvent.animatorClipInfo.weight > 0.5f)
+                if (footstepAudioClips.Length > 0)
+                {
+                    var index = Random.Range(0, footstepAudioClips.Length);
+                    AudioSource.PlayClipAtPoint(footstepAudioClips[index], transform.TransformPoint(_controller.center), footstepAudioVolume);
+                }
+        }
 
-        // private void OnLand(AnimationEvent animationEvent)
-        // {
-        //     if (animationEvent.animatorClipInfo.weight > 0.5f)
-        //         AudioSource.PlayClipAtPoint(landingAudioClip, transform.TransformPoint(_controller.center),
-        //             footstepAudioVolume);
-        // }
+        private void OnLand(AnimationEvent animationEvent)
+        {
+            if (animationEvent.animatorClipInfo.weight > 0.5f)
+                AudioSource.PlayClipAtPoint(landingAudioClip, transform.TransformPoint(_controller.center), footstepAudioVolume);
+        }
     }
 }

@@ -5,6 +5,7 @@ public class GameManager : NetworkBehaviour
 {
     public PlayerSpawnPosition player1SpawnPosition;
     public PlayerSpawnPosition player2SpawnPosition;
+    public CameraSwitcher cameraSwitcher;
 
     private NetworkManagerUI _networkManagerUI;
     private NetworkStatsUI _networkStatsUI;
@@ -17,7 +18,9 @@ public class GameManager : NetworkBehaviour
 
         _networkManagerUI = GetComponent<NetworkManagerUI>();
         _networkStatsUI = FindFirstObjectByType<NetworkStatsUI>();
+
         if (_networkStatsUI == null) Debug.LogError("NetworkStatsUI not found in the scene.");
+        if (cameraSwitcher == null) Debug.LogError("Please assign the CameraSwitcher.");
     }
 
     private new void OnDestroy()
@@ -46,7 +49,6 @@ public class GameManager : NetworkBehaviour
             return;
         }
 
-        // _networkManagerUI.StopDiscovering();
         _playerCount++;
         if (_playerCount == 2) StartGame();
     }
@@ -59,8 +61,11 @@ public class GameManager : NetworkBehaviour
 
     private void StartGame()
     {
-        // _networkManagerUI.StopBroadcasting();
-        foreach (var client in NetworkManager.Singleton.ConnectedClientsList) InitializePlayer(client.ClientId);
+        foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+        {
+            InitializePlayer(client.ClientId);
+            DisableCameraSwitcherClientRpc(client.ClientId);
+        }
     }
 
     private void InitializePlayer(ulong clientId)
@@ -78,5 +83,14 @@ public class GameManager : NetworkBehaviour
     private void EndGame()
     {
         // Implement game end logic here
+    }
+
+    [ClientRpc]
+    private void DisableCameraSwitcherClientRpc(ulong clientId)
+    {
+        if (NetworkManager.Singleton.LocalClientId == clientId)
+        {
+            cameraSwitcher.enabled = false;
+        }
     }
 }

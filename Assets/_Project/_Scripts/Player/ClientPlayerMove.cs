@@ -1,3 +1,4 @@
+using System;
 using _Project;
 using Unity.Netcode;
 using UnityEngine;
@@ -7,43 +8,47 @@ namespace _Project
 {
     public class ClientPlayerMove : NetworkBehaviour
     {
-        [SerializeField] private CharacterController characterController;
-        [SerializeField] private FirstPersonController firstPersonController;
         [SerializeField] private PlayerInput playerInput;
         [SerializeField] private InputSystem inputSystem;
-        // [SerializeField] private Transform playerCamera;
+        [SerializeField] private FirstPersonController firstPersonController;
 
         private void Awake()
         {
-            characterController.enabled = false;
             firstPersonController.enabled = false;
             playerInput.enabled = false;
+            inputSystem.enabled = false;
         }
 
         public override void OnNetworkSpawn()
         {
             base.OnNetworkSpawn();
-            enabled = IsClient; // Has to be client
 
-            // If it is not ours
-            if (!IsOwner)
+            if (IsOwner)
             {
-                enabled = false;
-                characterController.enabled = false;
-                firstPersonController.enabled = false;
-                playerInput.enabled = false;
-                return;
+                playerInput.enabled = true;
+                inputSystem.enabled = true;
             }
 
-            // This is ours now
-            characterController.enabled = true;
-            firstPersonController.enabled = true;
-            playerInput.enabled = true;
+            if (IsServer)
+            {
+                firstPersonController.enabled = true;
+            }
         }
 
-        private void Update()
+        [Rpc(SendTo.Server)]
+        private void UpdateInputServerRpc(Vector2 move, Vector2 look, bool jump, bool sprint, bool crouch)
         {
-            if (!IsOwner) return;
+            inputSystem.MoveInput(move);
+            inputSystem.LookInput(look);
+            inputSystem.JumpInput(jump);
+            inputSystem.SprintInput(sprint);
+            inputSystem.CrouchInput(crouch);
+            //firstPersonController.ReceiveInput(move, look, jump, sprint, crouch);
+        }
+
+        private void LateUpdate()
+        {
+            if (!IsOwner)  return;
 
             // Send movement input to the server
             var moveInput = inputSystem.move;
@@ -52,13 +57,7 @@ namespace _Project
             var sprintInput = inputSystem.sprint;
             var crouchInput = inputSystem.crouch;
 
-            SubmitMovementInputServerRpc(moveInput, lookInput, jumpInput, sprintInput, crouchInput);
-        }
-
-        [ServerRpc]
-        private void SubmitMovementInputServerRpc(Vector2 move, Vector2 look, bool jump, bool sprint, bool crouch)
-        {
-            firstPersonController.ReceiveInput(move, look, jump, sprint, crouch);
+            UpdateInputServerRpc(moveInput, lookInput, jumpInput, sprintInput, crouchInput);
         }
     }
 }
