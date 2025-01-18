@@ -1,5 +1,4 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -11,7 +10,7 @@ namespace _Project
         [SerializeField] private ChatMessage chatMessagePrefab;
         [SerializeField] private Transform chatMessageParent;
         [SerializeField] private TMP_InputField chatInputField;
-        
+
         public string playerName;
         public bool isChatOpen;
 
@@ -22,34 +21,32 @@ namespace _Project
 
         private void Update()
         {
-            if (PauseMenuUI.Instance.IsPaused) return;
-            
-            if (Input.GetKeyDown(KeyCode.T) && IsOwner)
-            {
-                OpenChat();
-            }
-            
+            if (Input.GetKeyDown(KeyCode.T) && IsOwner) OpenChat();
+
             if (Input.GetKeyDown(KeyCode.Return) && IsOwner)
             {
                 SendChatMessage(chatInputField.text, playerName);
                 CloseChat();
             }
-            
-            if (Input.GetKeyDown(KeyCode.Escape) && IsOwner)
-            {
-                CloseChat();
-            }
+
+            if (Input.GetKeyDown(KeyCode.Escape) && IsOwner) CloseChat();
         }
 
         private void OpenChat()
         {
+            if (PauseMenuUI.Instance.IsPaused) return;
             isChatOpen = true;
+            chatPanel.SetActive(true);
+            chatInputField.gameObject.SetActive(true);
             chatInputField.ActivateInputField();
+            chatInputField.onFocusSelectAll = true;
+            chatInputField.Select();
             UnlockCursor();
         }
 
         private void CloseChat()
         {
+            if (PauseMenuUI.Instance.IsPaused) return;
             isChatOpen = false;
             chatInputField.text = string.Empty;
             chatInputField.DeactivateInputField();
@@ -71,31 +68,31 @@ namespace _Project
         public void SendChatMessage(string message, string fromWho = null)
         {
             if (string.IsNullOrEmpty(message)) return;
-            
-            Color nameColor = GenerateColorFromName(fromWho);
-            string colorHex = ColorUtility.ToHtmlStringRGB(nameColor);
-            string formattedFromWho = $"<color=#{colorHex}>{fromWho}</color>";
-            string s = formattedFromWho + " > " + message;
-            
+
+            var nameColor = GenerateColorFromName(fromWho);
+            var colorHex = ColorUtility.ToHtmlStringRGB(nameColor);
+            var formattedFromWho = $"<color=#{colorHex}>{fromWho}</color>";
+            var s = formattedFromWho + " > " + message;
+
             SendChatMessageServerRpc(s);
         }
 
         private void AddMessage(string msg)
         {
-            ChatMessage cm = Instantiate(chatMessagePrefab, chatMessageParent);
+            var cm = Instantiate(chatMessagePrefab, chatMessageParent);
             cm.SetText(msg);
         }
 
         private Color GenerateColorFromName(string name)
         {
             // Use a hash function to generate a consistent color for each name
-            int hash = name.GetHashCode();
-            float r = ((hash >> 16) & 0xFF) / 255.0f;
-            float g = ((hash >> 8) & 0xFF) / 255.0f;
-            float b = (hash & 0xFF) / 255.0f;
+            var hash = name.GetHashCode();
+            var r = ((hash >> 16) & 0xFF) / 255.0f;
+            var g = ((hash >> 8) & 0xFF) / 255.0f;
+            var b = (hash & 0xFF) / 255.0f;
             return new Color(r, g, b);
         }
-        
+
         [ServerRpc(RequireOwnership = false)]
         private void SendChatMessageServerRpc(string message)
         {

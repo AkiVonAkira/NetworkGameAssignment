@@ -9,8 +9,9 @@ namespace _Project
         [Header("Cinemachine Virtual Cameras")]
         public CinemachineCamera[] virtualCameras;
 
-        [Header("Transition Settings")] 
+        [Header("Transition Settings")]
         public float transitionDuration = 2f;
+
         public float waitTimeAtEachCamera = 3f;
 
         private CinemachineBrain _cinemachineBrain;
@@ -45,10 +46,7 @@ namespace _Project
 
         private void ActivateCamera(int index)
         {
-            for (var i = 0; i < virtualCameras.Length; i++)
-            {
-                virtualCameras[i].Priority = i == index ? 5 : 0;
-            }
+            for (var i = 0; i < virtualCameras.Length; i++) virtualCameras[i].Priority = i == index ? 5 : 0;
         }
     }
 }

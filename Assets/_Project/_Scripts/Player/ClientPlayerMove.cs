@@ -1,5 +1,3 @@
-using System;
-using _Project;
 using Unity.Cinemachine;
 using Unity.Netcode;
 using UnityEngine;
@@ -20,6 +18,20 @@ namespace _Project
             playerInput.enabled = false;
             inputSystem.enabled = false;
             playerCamera.enabled = false;
+        }
+
+        private void LateUpdate()
+        {
+            if (!IsOwner) return;
+
+            // Send movement input to the server
+            var moveInput = inputSystem.move;
+            var lookInput = inputSystem.look;
+            var jumpInput = inputSystem.jump;
+            var sprintInput = inputSystem.sprint;
+            var crouchInput = inputSystem.crouch;
+
+            UpdateInputServerRpc(moveInput, lookInput, jumpInput, sprintInput, crouchInput);
         }
 
         public override void OnNetworkSpawn()
@@ -50,20 +62,6 @@ namespace _Project
             inputSystem.SprintInput(sprint);
             inputSystem.CrouchInput(crouch);
             //firstPersonController.ReceiveInput(move, look, jump, sprint, crouch);
-        }
-
-        private void LateUpdate()
-        {
-            if (!IsOwner)  return;
-
-            // Send movement input to the server
-            var moveInput = inputSystem.move;
-            var lookInput = inputSystem.look;
-            var jumpInput = inputSystem.jump;
-            var sprintInput = inputSystem.sprint;
-            var crouchInput = inputSystem.crouch;
-
-            UpdateInputServerRpc(moveInput, lookInput, jumpInput, sprintInput, crouchInput);
         }
     }
 }

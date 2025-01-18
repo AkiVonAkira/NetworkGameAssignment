@@ -62,11 +62,14 @@ namespace _Project
                     NetworkManager.Singleton.DisconnectClient(clientId);
                     return;
             }
-            
+
             var playerNumber = (int)NetworkManager.Singleton.LocalClientId + 1;
             ChatManager.Instance.playerName = $"Player {playerNumber}";
             ChatManager.Instance.SendChatMessage($"Player {playerNumber} has joined the game.", "Server");
-            
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
             UpdatePlayerCountText();
         }
 
@@ -82,20 +85,18 @@ namespace _Project
                     EndGame();
                     break;
             }
-            
+
             var playerNumber = (int)NetworkManager.Singleton.LocalClientId + 1;
             ChatManager.Instance.playerName = $"Player {playerNumber}";
             ChatManager.Instance.SendChatMessage($"Player {playerNumber} has disconnected the game.", "Server");
-            
+            ChatManager.Instance.chatPanel.SetActive(false);
+
             UpdatePlayerCountText();
         }
 
         private void StartGame()
         {
-            foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
-            {
-                InitializePlayer(client.ClientId);
-            }
+            foreach (var client in NetworkManager.Singleton.ConnectedClientsList) InitializePlayer(client.ClientId);
         }
 
         private void InitializePlayer(ulong clientId)
@@ -113,7 +114,7 @@ namespace _Project
 
         private void UpdatePlayerCountText()
         {
-            networkStatsText.text = $"{_playerCount}P Connected";
+            networkStatsText.text = $"#{_playerCount}";
         }
 
         private void EndGame()

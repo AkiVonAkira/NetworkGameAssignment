@@ -7,7 +7,8 @@ namespace _Project
 {
     public class InputSystem : MonoBehaviour
     {
-        [Header("Character Input Values")] public Vector2 move;
+        [Header("Character Input Values")]
+        public Vector2 move;
 
         public Vector2 look;
         public bool jump;
@@ -15,9 +16,11 @@ namespace _Project
         public bool crouch;
         public bool pause;
 
-        [Header("Movement Settings")] public bool analogMovement;
+        [Header("Movement Settings")]
+        public bool analogMovement;
 
-        [Header("Mouse Cursor Settings")] public bool cursorLocked = true;
+        [Header("Mouse Cursor Settings")]
+        public bool cursorLocked = true;
 
         public bool cursorInputForLook = true;
 

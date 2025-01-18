@@ -35,10 +35,7 @@ public class GameSessionAnnouncer : MonoBehaviour, IDisposable
 
     public void InitializeUdpClient()
     {
-        _udpClient = new UdpClient
-        {
-            EnableBroadcast = true
-        };
+        _udpClient = new UdpClient { EnableBroadcast = true };
         _broadcastEndPoint = new IPEndPoint(IPAddress.Broadcast, 7788);
 
         // Start broadcasting every 1 second

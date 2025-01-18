@@ -44,10 +44,7 @@ public class GameSessionDiscoverer : MonoBehaviour, IDisposable
 
     private void InitializeUdpClient()
     {
-        _udpClient = new UdpClient
-        {
-            Client = { ExclusiveAddressUse = false }
-        };
+        _udpClient = new UdpClient { Client = { ExclusiveAddressUse = false } };
         _udpClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
         _udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, 7788));
         StartListening();

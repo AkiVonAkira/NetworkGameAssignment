@@ -5,21 +5,194 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7416451-9a69-4fac-9c25-d3168358af21" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/ChatManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/ChatManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NetworkGameAssignment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NetworkGameAssignment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssets.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssets.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssets.inputactions.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssets.inputactions.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssets.inputsettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssets.inputsettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssets.inputsettings.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssets.inputsettings.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssetsInputs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssetsInputs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssetsInputs.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/InputSystem/StarterAssetsInputs.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/CanvasInputs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/CanvasInputs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/CanvasInputs/UI_Canvas_StarterAssetsInputs_Joysticks.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/CanvasInputs/UI_Canvas_StarterAssetsInputs_Joysticks.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/CanvasInputs/UI_Canvas_StarterAssetsInputs_Joysticks.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/CanvasInputs/UI_Canvas_StarterAssetsInputs_Joysticks.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/CanvasInputs/UI_Canvas_StarterAssetsInputs_TouchZones.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/CanvasInputs/UI_Canvas_StarterAssetsInputs_TouchZones.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/CanvasInputs/UI_Canvas_StarterAssetsInputs_TouchZones.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/CanvasInputs/UI_Canvas_StarterAssetsInputs_TouchZones.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/EventSystem.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/EventSystem.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/EventSystem/UI_EventSystem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/EventSystem/UI_EventSystem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/EventSystem/UI_EventSystem.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/EventSystem/UI_EventSystem.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs/UI_Virtual_Button.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs/UI_Virtual_Button.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs/UI_Virtual_Button.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs/UI_Virtual_Button.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs/UI_Virtual_Joystick.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs/UI_Virtual_Joystick.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs/UI_Virtual_Joystick.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs/UI_Virtual_Joystick.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs/UI_Virtual_TouchZone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs/UI_Virtual_TouchZone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs/UI_Virtual_TouchZone.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Prefabs/VirtualInputs/UI_Virtual_TouchZone.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/CanvasInputs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/CanvasInputs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/CanvasInputs/UICanvasControllerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/CanvasInputs/UICanvasControllerInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/CanvasInputs/UICanvasControllerInput.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/CanvasInputs/UICanvasControllerInput.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/Utilities.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/Utilities.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/Utilities/MobileDisableAutoSwitchControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/Utilities/MobileDisableAutoSwitchControls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/Utilities/MobileDisableAutoSwitchControls.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/Utilities/MobileDisableAutoSwitchControls.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualButton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualButton.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualJoystick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualJoystick.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualJoystick.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualJoystick.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualTouchZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualTouchZone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualTouchZone.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualTouchZone.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/UI.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/UI.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/UI/UI_Icon_Look.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Mobile/UI/UI_Icon_Look.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Readme.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Readme.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/Readme.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/Readme.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/StarterAssets_Documentation_v1.1.pdf.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/StarterAssets_Documentation_v1.1.pdf.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Jump--InAir.anim.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Jump--InAir.anim.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Jump--Jump.anim.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Jump--Jump.anim.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Locomotion--Run_N.anim.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Locomotion--Run_N.anim.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Locomotion--Run_N_Land.anim.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Locomotion--Run_N_Land.anim.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Locomotion--Run_S.anim.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Locomotion--Run_S.anim.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Locomotion--Walk_N.anim.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Locomotion--Walk_N.anim.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Locomotion--Walk_N_Land.anim.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Locomotion--Walk_N_Land.anim.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Stand--Idle.anim.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/Stand--Idle.anim.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/StarterAssetsThirdPerson.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Animations/StarterAssetsThirdPerson.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Materials/M_Armature_Arms.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Materials/M_Armature_Arms.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Materials/M_Armature_Body.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Materials/M_Armature_Body.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Materials/M_Armature_Legs.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Materials/M_Armature_Legs.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Models.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Models/Armature.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Models/Armature.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_03.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_03.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_04.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_04.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_05.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_05.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_06.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_06.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_07.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_07.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_08.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_08.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_09.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_09.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_10.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Footstep_10.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Land.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Sfx/Player_Land.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Arms_AlbedoTransparency.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Arms_AlbedoTransparency.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Arms_MetallicSmoothness.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Arms_MetallicSmoothness.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Arms_Normal.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Arms_Normal.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Arms_RGB.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Arms_RGB.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Body_AlbedoTransparency.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Body_AlbedoTransparency.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Body_MetallicSmoothness.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Body_MetallicSmoothness.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Body_Normal.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Body_Normal.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Body_RGB.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Body_RGB.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Legs_AlbedoTransparency.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Legs_AlbedoTransparency.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Legs_MetallicSmoothness.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Legs_MetallicSmoothness.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Legs_Normal.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Legs_Normal.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Legs_RGB.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Character/Textures/Armature_Legs_RGB.tif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Prefabs/MainCamera.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Prefabs/MainCamera.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Prefabs/NestedParentArmature_Unpack.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Prefabs/NestedParentArmature_Unpack.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Prefabs/NestedParentCapsule_Unpack.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Prefabs/NestedParentCapsule_Unpack.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Prefabs/PlayerArmature.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Prefabs/PlayerArmature.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Prefabs/PlayerCapsule.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Prefabs/PlayerCapsule.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Prefabs/PlayerFollowCamera.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Prefabs/PlayerFollowCamera.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes/Playground.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes/Playground.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes/Playground.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes/Playground/LightingData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes/Playground/LightingData.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes/Playground/ReflectionProbe-0.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes/Playground/ReflectionProbe-0.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes/Playground/ReflectionProbe-1.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes/Playground/ReflectionProbe-1.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes/Playground/ReflectionProbe-2.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes/Playground/ReflectionProbe-2.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes/PlaygroundSettings.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scenes/PlaygroundSettings.lighting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scripts/BasicRigidBodyPush.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scripts/BasicRigidBodyPush.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scripts/ThirdPersonController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/ThirdPersonController/Scripts/ThirdPersonController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/TutorialInfo.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/TutorialInfo.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/TutorialInfo/Icons.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/TutorialInfo/Icons.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/TutorialInfo/Icons/ReadMeImg.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/TutorialInfo/Icons/ReadMeImg.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/TutorialInfo/Icons/ReadMeImg.PNG.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/TutorialInfo/Icons/ReadMeImg.PNG.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/license.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/license.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StarterAssets/license.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StarterAssets/license.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/PlayerActions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/PlayerActions.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/CameraSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/CameraSwitcher.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Controllers/FirstPersonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Controllers/FirstPersonController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Ladder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Ladder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/ChatManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/ChatManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/NetworkManagerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/NetworkManagerUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/ClientNetworkAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/ClientNetworkAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/ClientNetworkTransform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/ClientNetworkTransform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/GameSessionAnnouncer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/GameSessionAnnouncer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/GameSessionDiscoverer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/GameSessionDiscoverer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/NetworkStatsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/NetworkStatsUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/PlayerNetworkStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Network/PlayerNetworkStats.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/ClientPlayerMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/ClientPlayerMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerSpawnPosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Spawners/PlayerSpawnPosition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerSpawnPosition.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Spawners/PlayerSpawnPosition.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/InputSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/InputSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerNetworkGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerNetworkGun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerStatsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerStatsUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/UI/ChatMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/UI/ChatMessage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/UI/LobbyButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/UI/LobbyButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/UI/PauseMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/UI/PauseMenuUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Utilities/Singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Utilities/Singleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EntitiesClientSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EntitiesClientSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +213,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects/Runtime/Messaging/Messages/RpcMessages.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects/Runtime/NetworkVariable/NetworkVariableBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects/Runtime/Transports/UTP/UnityTransport.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/TMP/TMP_InputField.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -52,21 +226,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.33f1\Editor\Unity.exe" />
@@ -123,7 +297,7 @@
       <workItem from="1737037774182" duration="3749000" />
       <workItem from="1737104335932" duration="8031000" />
       <workItem from="1737210180651" duration="2146000" />
-      <workItem from="1737212549556" duration="4451000" />
+      <workItem from="1737212549556" duration="8347000" />
     </task>
     <servers />
   </component>

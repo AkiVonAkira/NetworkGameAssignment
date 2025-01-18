@@ -55,7 +55,7 @@ namespace _Project
             DontDestroyOnLoad(gameObject);
         }
     }
-    
+
     /// <summary>
     ///     A static instance is similar to a singleton, but instead of destroying any new
     ///     instances, it overrides the current instance. This is handy for resetting the state

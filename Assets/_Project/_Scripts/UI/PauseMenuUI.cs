@@ -11,7 +11,7 @@ namespace _Project
         [SerializeField] internal Canvas pauseMenuCanvas;
         [SerializeField] private NetworkManagerUI networkManagerUI;
         [SerializeField] private ChatManager chatManager;
-        
+
         internal bool IsPaused => pauseMenuCanvas.enabled;
 
         private new void Awake()
@@ -26,6 +26,11 @@ namespace _Project
             pauseMenuCanvas.enabled = false;
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape)) TogglePauseMenu();
+        }
+
         public void TogglePauseMenu()
         {
             if (chatManager.isChatOpen) return;
@@ -34,13 +39,9 @@ namespace _Project
             Time.timeScale = pauseMenuCanvas.enabled ? 0 : 1;
 
             if (pauseMenuCanvas.enabled)
-            {
                 UnlockCursor();
-            }
             else
-            {
                 LockCursor();
-            }
         }
 
         private void QuitGame()

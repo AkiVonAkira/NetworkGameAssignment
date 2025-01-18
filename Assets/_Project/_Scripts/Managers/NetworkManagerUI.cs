@@ -19,7 +19,9 @@ namespace _Project
         [SerializeField] private Transform hostListContent;
         [SerializeField] private GameObject joinLobbyButtonPrefab;
 
-        [Space(20)] [Header("Port Range")] [SerializeField]
+        [Space(20)]
+        [Header("Port Range")]
+        [SerializeField]
         internal int minPort = 8000;
 
         [SerializeField] internal int maxPort = 8100;
