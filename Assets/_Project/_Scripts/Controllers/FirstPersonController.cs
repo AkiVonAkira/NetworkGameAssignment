@@ -1,4 +1,4 @@
-﻿using _Project.UI;
+﻿using JetBrains.Annotations;
 using Unity.Netcode;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
@@ -109,7 +109,7 @@ namespace _Project
 
         private void Update()
         {
-            if (!IsOwner) return;
+            if (!IsOwner || ChatManager.Instance.isChatOpen || PauseMenuUI.Instance.IsPaused) return;
 
             _hasAnimator = TryGetComponent(out _animator);
 
@@ -120,7 +120,7 @@ namespace _Project
 
         private void LateUpdate()
         {
-            if (!IsOwner) return;
+            if (!IsOwner || ChatManager.Instance.isChatOpen || PauseMenuUI.Instance.IsPaused) return;
             CameraRotation();
         }
 
@@ -251,25 +251,11 @@ namespace _Project
             if (_input == null) return;
 
             if (grounded) Grounded();
-            else Jump();
+            else Fall();
 
             if (_verticalVelocity < _terminalVelocity) _verticalVelocity += gravity * Time.deltaTime;
-        }
 
-        private void Jump()
-        {
-            _jumpTimeoutDelta = jumpTimeout;
-
-            if (_fallTimeoutDelta >= 0.0f)
-            {
-                _fallTimeoutDelta -= Time.deltaTime;
-            }
-            else
-            {
-                if (_hasAnimator) _animator.SetBool(_animIDFreeFall, true);
-            }
-
-            _input.jump = false;
+            _controller.Move(new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
         }
 
         private void Grounded()
@@ -286,6 +272,27 @@ namespace _Project
             }
 
             if (_jumpTimeoutDelta >= 0.0f) _jumpTimeoutDelta -= Time.deltaTime;
+            
+            if (_hasAnimator) _animator.SetBool(_animIDJump, false);
+        }
+        
+        private void Fall()
+        {
+            _jumpTimeoutDelta = jumpTimeout;
+
+            if (_fallTimeoutDelta >= 0.0f)
+            {
+                _fallTimeoutDelta -= Time.deltaTime;
+            }
+            else
+            {
+                if (_hasAnimator)
+                {
+                    _animator.SetBool(_animIDFreeFall, true);
+                }
+            }
+
+            _input.jump = false;
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
@@ -304,9 +311,10 @@ namespace _Project
             _input.crouch = crouch;
         }
 
+        [UsedImplicitly]
         private void OnFootstep(AnimationEvent animationEvent)
         {
-            if (animationEvent.animatorClipInfo.weight > 0.5f)
+            if (animationEvent.animatorClipInfo.weight > 0.5f && IsOwner)
                 if (footstepAudioClips.Length > 0)
                 {
                     var index = Random.Range(0, footstepAudioClips.Length);
@@ -314,9 +322,10 @@ namespace _Project
                 }
         }
 
+        [UsedImplicitly]
         private void OnLand(AnimationEvent animationEvent)
         {
-            if (animationEvent.animatorClipInfo.weight > 0.5f)
+            if (animationEvent.animatorClipInfo.weight > 0.5f && IsOwner)
                 AudioSource.PlayClipAtPoint(landingAudioClip, transform.TransformPoint(_controller.center), footstepAudioVolume);
         }
     }

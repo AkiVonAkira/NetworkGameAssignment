@@ -1,96 +1,124 @@
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
-public class GameManager : NetworkBehaviour
+namespace _Project
 {
-    public PlayerSpawnPosition player1SpawnPosition;
-    public PlayerSpawnPosition player2SpawnPosition;
-    public CameraSwitcher cameraSwitcher;
-
-    private NetworkManagerUI _networkManagerUI;
-    private NetworkStatsUI _networkStatsUI;
-    private int _playerCount;
-
-    private void Start()
+    public class GameManager : NetworkSingleton<GameManager>
     {
-        if (player1SpawnPosition == null || player2SpawnPosition == null)
-            Debug.LogError("Please assign the player spawn positions.");
+        public PlayerSpawnPosition player1SpawnPosition;
+        public PlayerSpawnPosition player2SpawnPosition;
+        public CameraSwitcher cameraSwitcher;
+        public TextMeshProUGUI networkStatsText;
 
-        _networkManagerUI = GetComponent<NetworkManagerUI>();
-        _networkStatsUI = FindFirstObjectByType<NetworkStatsUI>();
+        private NetworkManagerUI _networkManagerUI;
+        private NetworkStatsUI _networkStatsUI;
+        private int _playerCount;
 
-        if (_networkStatsUI == null) Debug.LogError("NetworkStatsUI not found in the scene.");
-        if (cameraSwitcher == null) Debug.LogError("Please assign the CameraSwitcher.");
-    }
-
-    private new void OnDestroy()
-    {
-        if (NetworkManager.Singleton != null && IsServer)
+        private void Start()
         {
-            NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
-            NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnected;
-        }
-    }
+            if (player1SpawnPosition == null || player2SpawnPosition == null)
+                Debug.LogError("Please assign the player spawn positions.");
 
-    public override void OnNetworkSpawn()
-    {
-        if (NetworkManager.Singleton != null && IsServer)
-        {
-            NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
-            NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
-        }
-    }
+            _networkManagerUI = GetComponent<NetworkManagerUI>();
+            _networkStatsUI = FindFirstObjectByType<NetworkStatsUI>();
 
-    private void OnClientConnected(ulong clientId)
-    {
-        if (_playerCount >= 2)
-        {
-            NetworkManager.Singleton.DisconnectClient(clientId);
-            return;
+            if (_networkStatsUI == null) Debug.LogError("NetworkStatsUI not found in the scene.");
+            if (cameraSwitcher == null) Debug.LogError("Please assign the CameraSwitcher.");
         }
 
-        _playerCount++;
-        if (_playerCount == 2) StartGame();
-    }
-
-    private void OnClientDisconnected(ulong clientId)
-    {
-        _playerCount--;
-        if (_playerCount < 2) EndGame();
-    }
-
-    private void StartGame()
-    {
-        foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+        private new void OnDestroy()
         {
-            InitializePlayer(client.ClientId);
-            DisableCameraSwitcherClientRpc(client.ClientId);
+            if (NetworkManager.Singleton != null && IsServer)
+            {
+                NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
+                NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnected;
+            }
         }
-    }
 
-    private void InitializePlayer(ulong clientId)
-    {
-        var playerObject = NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject;
-        var spawnPosition = clientId == 0
-            ? player1SpawnPosition.GetRandomSpawnPosition()
-            : player2SpawnPosition.GetRandomSpawnPosition();
-        playerObject.transform.position = spawnPosition;
-        playerObject.transform.rotation = Quaternion.identity;
-
-        _networkStatsUI.UpdatePort();
-    }
-
-    private void EndGame()
-    {
-        // Implement game end logic here
-    }
-
-    [ClientRpc]
-    private void DisableCameraSwitcherClientRpc(ulong clientId)
-    {
-        if (NetworkManager.Singleton.LocalClientId == clientId)
+        public override void OnNetworkSpawn()
         {
-            cameraSwitcher.enabled = false;
+            base.OnNetworkSpawn();
+            if (NetworkManager.Singleton != null && IsServer)
+            {
+                NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+                NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
+            }
+        }
+
+        private void OnClientConnected(ulong clientId)
+        {
+            _playerCount++;
+            switch (_playerCount)
+            {
+                case 1:
+                    cameraSwitcher.enabled = false;
+                    InitializePlayer(clientId);
+                    break;
+                case 2:
+                    StartGame();
+                    break;
+                case >= 2:
+                    NetworkManager.Singleton.DisconnectClient(clientId);
+                    return;
+            }
+            
+            var playerNumber = (int)NetworkManager.Singleton.LocalClientId + 1;
+            ChatManager.Instance.playerName = $"Player {playerNumber}";
+            ChatManager.Instance.SendChatMessage($"Player {playerNumber} has joined the game.", "Server");
+            
+            UpdatePlayerCountText();
+        }
+
+        private void OnClientDisconnected(ulong clientId)
+        {
+            _playerCount--;
+            switch (_playerCount)
+            {
+                case 0:
+                    cameraSwitcher.enabled = true;
+                    break;
+                case < 2:
+                    EndGame();
+                    break;
+            }
+            
+            var playerNumber = (int)NetworkManager.Singleton.LocalClientId + 1;
+            ChatManager.Instance.playerName = $"Player {playerNumber}";
+            ChatManager.Instance.SendChatMessage($"Player {playerNumber} has disconnected the game.", "Server");
+            
+            UpdatePlayerCountText();
+        }
+
+        private void StartGame()
+        {
+            foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+            {
+                InitializePlayer(client.ClientId);
+            }
+        }
+
+        private void InitializePlayer(ulong clientId)
+        {
+            var playerObject = NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject;
+            var spawnPosition = clientId == 0
+                ? player1SpawnPosition.GetRandomSpawnPosition()
+                : player2SpawnPosition.GetRandomSpawnPosition();
+            playerObject.transform.position = spawnPosition;
+            playerObject.transform.rotation = Quaternion.identity;
+
+            _networkStatsUI.UpdatePort();
+            UpdatePlayerCountText();
+        }
+
+        private void UpdatePlayerCountText()
+        {
+            networkStatsText.text = $"{_playerCount}P Connected";
+        }
+
+        private void EndGame()
+        {
+            // Implement game end logic here
         }
     }
 }

@@ -2,14 +2,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.UI
+namespace _Project
 {
     public class PauseMenuUI : Singleton<PauseMenuUI>
     {
         [SerializeField] private Button quitButton;
         [SerializeField] private Button leaveServerButton;
-        [SerializeField] private Canvas pauseMenuCanvas;
+        [SerializeField] internal Canvas pauseMenuCanvas;
         [SerializeField] private NetworkManagerUI networkManagerUI;
+        [SerializeField] private ChatManager chatManager;
+        
+        internal bool IsPaused => pauseMenuCanvas.enabled;
 
         private new void Awake()
         {
@@ -25,8 +28,19 @@ namespace _Project.UI
 
         public void TogglePauseMenu()
         {
+            if (chatManager.isChatOpen) return;
+
             pauseMenuCanvas.enabled = !pauseMenuCanvas.enabled;
             Time.timeScale = pauseMenuCanvas.enabled ? 0 : 1;
+
+            if (pauseMenuCanvas.enabled)
+            {
+                UnlockCursor();
+            }
+            else
+            {
+                LockCursor();
+            }
         }
 
         private void QuitGame()
@@ -42,6 +56,18 @@ namespace _Project.UI
             networkManagerUI.networkManagerCanvas.enabled = true;
             pauseMenuCanvas.enabled = false;
             Time.timeScale = 1;
+        }
+
+        private void LockCursor()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        private void UnlockCursor()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }

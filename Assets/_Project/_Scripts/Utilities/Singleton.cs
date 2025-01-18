@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 
 namespace _Project
@@ -52,6 +53,33 @@ namespace _Project
         {
             base.Awake();
             DontDestroyOnLoad(gameObject);
+        }
+    }
+    
+    /// <summary>
+    ///     A static instance is similar to a singleton, but instead of destroying any new
+    ///     instances, it overrides the current instance. This is handy for resetting the state
+    ///     and saves you doing it manually. But now networked!
+    /// </summary>
+    public abstract class NetworkSingleton<T> : NetworkBehaviour where T : NetworkBehaviour
+    {
+        public static T Instance { get; private set; }
+
+        protected virtual void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this as T;
+        }
+
+        protected void OnApplicationQuit()
+        {
+            Instance = null;
+            Destroy(gameObject);
         }
     }
 }

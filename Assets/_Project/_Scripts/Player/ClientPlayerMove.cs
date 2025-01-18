@@ -1,5 +1,6 @@
 using System;
 using _Project;
+using Unity.Cinemachine;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,12 +12,14 @@ namespace _Project
         [SerializeField] private PlayerInput playerInput;
         [SerializeField] private InputSystem inputSystem;
         [SerializeField] private FirstPersonController firstPersonController;
+        [SerializeField] private CinemachineCamera playerCamera;
 
         private void Awake()
         {
             firstPersonController.enabled = false;
             playerInput.enabled = false;
             inputSystem.enabled = false;
+            playerCamera.enabled = false;
         }
 
         public override void OnNetworkSpawn()
@@ -27,11 +30,14 @@ namespace _Project
             {
                 playerInput.enabled = true;
                 inputSystem.enabled = true;
-            }
-
-            if (IsServer)
-            {
                 firstPersonController.enabled = true;
+                playerCamera.enabled = true;
+                playerCamera.Priority = 10;
+                ChatManager.Instance.chatPanel.SetActive(true);
+            }
+            else
+            {
+                playerCamera.Priority = 0;
             }
         }
 
