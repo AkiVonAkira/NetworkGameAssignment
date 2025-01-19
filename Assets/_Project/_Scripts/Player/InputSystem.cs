@@ -15,6 +15,8 @@ namespace _Project
         public bool sprint;
         public bool crouch;
         public bool pause;
+        public bool fire;
+        public bool reload;
 
         [Header("Movement Settings")]
         public bool analogMovement;
@@ -59,6 +61,16 @@ namespace _Project
         {
             pause = newPauseState;
         }
+        
+        public void FireInput(bool newFireState)
+        {
+            fire = newFireState;
+        }
+        
+        public void ReloadInput(bool newReloadState)
+        {
+            reload = newReloadState;
+        }
 
         private void SetCursorState(bool newState)
         {
@@ -94,6 +106,16 @@ namespace _Project
         public void OnPause(InputValue value)
         {
             PauseInput(value.isPressed);
+        }
+        
+        public void OnFire(InputValue value)
+        {
+            FireInput(value.isPressed);
+        }
+        
+        public void OnReload(InputValue value)
+        {
+            ReloadInput(value.isPressed);
         }
 #endif
     }

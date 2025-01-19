@@ -12,7 +12,7 @@ namespace _Project
 #endif
     public class FirstPersonController : NetworkBehaviour
     {
-        private const float _threshold = 0.01f;
+        private const float Threshold = 0.01f;
 
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
@@ -156,7 +156,7 @@ namespace _Project
         private void CameraRotation()
         {
             // if there is an input
-            if (_input.look.sqrMagnitude >= _threshold)
+            if (_input.look.sqrMagnitude >= Threshold)
             {
                 //Don't multiply mouse input by Time.deltaTime
                 var deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
