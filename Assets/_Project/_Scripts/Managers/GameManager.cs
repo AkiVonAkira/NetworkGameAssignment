@@ -10,10 +10,13 @@ namespace _Project
         public PlayerSpawnPosition player2SpawnPosition;
         public CameraSwitcher cameraSwitcher;
         public TextMeshProUGUI networkStatsText;
+        public GameObject gameOverPanel;
+        public TextMeshProUGUI rematchStatusText;
 
         private NetworkManagerUI _networkManagerUI;
         private NetworkStatsUI _networkStatsUI;
         private int _playerCount;
+        private NetworkVariable<int> rematchVotes = new(0);
 
         private void Start()
         {
@@ -63,9 +66,8 @@ namespace _Project
                     return;
             }
 
-            var playerNumber = (int)NetworkManager.Singleton.LocalClientId + 1;
-            ChatManager.Instance.playerName = $"Player {playerNumber}";
-            ChatManager.Instance.SendChatMessage($"Player {playerNumber} has joined the game.", "Server");
+            ChatManager.Instance.playerName = $"Player {_playerCount}";
+            ChatManager.Instance.SendChatMessage($"Player {_playerCount} has joined the game.", "Server");
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -86,9 +88,8 @@ namespace _Project
                     break;
             }
 
-            var playerNumber = (int)NetworkManager.Singleton.LocalClientId + 1;
-            ChatManager.Instance.playerName = $"Player {playerNumber}";
-            ChatManager.Instance.SendChatMessage($"Player {playerNumber} has disconnected the game.", "Server");
+            ChatManager.Instance.playerName = $"Player {_playerCount}";
+            ChatManager.Instance.SendChatMessage($"Player {_playerCount} has disconnected the game.", "Server");
             ChatManager.Instance.chatPanel.SetActive(false);
 
             UpdatePlayerCountText();
@@ -119,7 +120,30 @@ namespace _Project
 
         private void EndGame()
         {
-            // Implement game end logic here
+            gameOverPanel.SetActive(true);
+            rematchVotes.Value = 0;
+            UpdateRematchStatus();
+            Time.timeScale = 0;
+        }
+
+        public void Rematch()
+        {
+            rematchVotes.Value++;
+            UpdateRematchStatus();
+            if (rematchVotes.Value == 2)
+            {
+                gameOverPanel.SetActive(false);
+                Time.timeScale = 1;
+                foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+                {
+                    InitializePlayer(client.ClientId);
+                }
+            }
+        }
+
+        private void UpdateRematchStatus()
+        {
+            rematchStatusText.text = $"Rematch {rematchVotes.Value}/2";
         }
     }
 }

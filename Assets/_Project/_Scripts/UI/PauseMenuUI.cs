@@ -49,7 +49,7 @@ namespace _Project
             Application.Quit();
         }
 
-        private void LeaveServer()
+        internal void LeaveServer()
         {
             if (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsHost)
                 NetworkManager.Singleton.Shutdown();

@@ -5,50 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7416451-9a69-4fac-9c25-d3168358af21" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/UI/GameOverUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/UI/GameOverUI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NetworkGameAssignment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NetworkGameAssignment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Settings/Demo.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Settings/Demo.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LowPoly/LowPolyWeapons_LITE/Materials/LowPolyWeaponsLite_BG.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LowPoly/LowPolyWeapons_LITE/Materials/LowPolyWeaponsLite_BG.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LowPoly/LowPolyWeapons_LITE/Materials/LowPolyWeaponsLite_MAIN.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LowPoly/LowPolyWeapons_LITE/Materials/LowPolyWeaponsLite_MAIN.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LowPoly/LowPolyWeapons_LITE/Prefabs/BulletLite_02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LowPoly/LowPolyWeapons_LITE/Prefabs/BulletLite_02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LowPoly/LowPolyWeapons_LITE/Prefabs/Weapon_02.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LowPoly/LowPolyWeapons_LITE/Prefabs/Weapon_02.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/PlayerActions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/PlayerActions.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Player.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/PlayerCapsule.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/PlayerCapsule.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/CameraSwitcher.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/CameraSwitcher.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Controllers/FirstPersonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Controllers/FirstPersonController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Ladder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Ladder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/InputSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/InputSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerNetworkGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Player/PlayerNetworkGun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/GlobalNamespace.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/GlobalNamespace.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UIElements.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UIElements.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/Unity.Multiplayer.Playmode.WorkflowUI.Editor.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.Multiplayer.Playmode.WorkflowUI.Editor.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/Unity.Multiplayer.Tools.NetVis.Editor.UI.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.Multiplayer.Tools.NetVis.Editor.UI.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/Unity.Multiplayer.Tools.NetworkProfiler.Editor.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.Multiplayer.Tools.NetworkProfiler.Editor.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/Unity.Multiplayer.Tools.NetworkSimulator.Editor.UI.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.Multiplayer.Tools.NetworkSimulator.Editor.UI.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/Unity.Profiling.Editor.UI.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.Profiling.Editor.UI.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/Unity.Profiling.Editor.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.Profiling.Editor.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/Unity.UI.Builder.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.UI.Builder.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Accessibility.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Accessibility.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Audio.UIElements.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Audio.UIElements.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Experimental.GraphView.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Experimental.GraphView.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Inspector.GraphicsSettingsInspectors.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Inspector.GraphicsSettingsInspectors.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Inspector.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Inspector.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Overlays.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Overlays.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.PackageManager.UI.Internal.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.PackageManager.UI.Internal.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Rendering.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Rendering.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Search.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Search.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.ShaderGraph.Drawing.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.ShaderGraph.Drawing.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.ShortcutManagement.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.ShortcutManagement.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.Debugger.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.Debugger.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.ProjectSettings.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.ProjectSettings.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEngine.UIElements.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEngine.UIElements.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scripts/UI/PauseMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scripts/UI/PauseMenuUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +115,7 @@
       <workItem from="1737037774182" duration="3749000" />
       <workItem from="1737104335932" duration="8031000" />
       <workItem from="1737210180651" duration="2146000" />
-      <workItem from="1737212549556" duration="12411000" />
+      <workItem from="1737212549556" duration="13023000" />
     </task>
     <servers />
   </component>
