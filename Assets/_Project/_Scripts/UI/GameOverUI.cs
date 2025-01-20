@@ -1,18 +1,30 @@
-﻿using UnityEngine;
+﻿using System;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Project
 {
-    public class GameOverUI : MonoBehaviour
+    public class GameOverUI : Singleton<GameOverUI>
     {
-        [SerializeField] private Text winnerText;
-        [SerializeField] private Button rematchButton;
+        [SerializeField] internal TextMeshProUGUI winnerText;
+        [SerializeField] internal Button rematchButton;
         [SerializeField] private Button leaveButton;
+        
+        private Canvas _canvas;
+        internal bool IsMenuOpen;
 
-        private void Awake()
+        private new void Awake()
         {
+            base.Awake();
             rematchButton.onClick.AddListener(OnRematchButtonClicked);
             leaveButton.onClick.AddListener(OnLeaveButtonClicked);
+        }
+
+        private void Start()
+        {
+            _canvas = GetComponent<Canvas>();
+            _canvas.enabled = false;
         }
 
         private void OnRematchButtonClicked()
@@ -23,6 +35,18 @@ namespace _Project
         private void OnLeaveButtonClicked()
         {
             PauseMenuUI.Instance.LeaveServer();
+        }
+
+        public void Show()
+        {
+            _canvas.enabled = true;
+            IsMenuOpen = true;
+        }
+        
+        public void Hide()
+        {
+            _canvas.enabled = false;
+            IsMenuOpen = false;
         }
     }
 }

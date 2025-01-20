@@ -46,6 +46,7 @@ namespace _Project
                 playerCamera.enabled = true;
                 playerCamera.Priority = 10;
                 ChatManager.Instance.chatPanel.SetActive(true);
+                ChatManager.Instance.SetInputSystem(inputSystem);
             }
             else
             {

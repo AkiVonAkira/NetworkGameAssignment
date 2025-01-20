@@ -1,51 +1,62 @@
 using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerNetworkStats : NetworkBehaviour
+namespace _Project
 {
-    public NetworkVariable<int> maxHealth = new(100);
-    public NetworkVariable<int> health = new(100);
-    public NetworkVariable<int> ammo = new(30);
-
-    private void Update()
+    public class PlayerNetworkStats : NetworkBehaviour
     {
-        if (IsOwner && Input.GetKeyDown(KeyCode.R)) ReloadAmmoServerRpc();
-    }
+        public NetworkVariable<int> maxHealth = new(100);
+        public NetworkVariable<int> health = new(100);
 
-    public override void OnNetworkSpawn()
-    {
-        base.OnNetworkSpawn();
+        public delegate void PlayerDiedHandler(ulong playerId);
+        public static event PlayerDiedHandler OnPlayerDied;
 
-        if (!IsOwner) return;
+        public override void OnNetworkSpawn()
+        {
+            base.OnNetworkSpawn();
 
-        health.Value = maxHealth.Value;
-        health.OnValueChanged += OnHealthChanged;
-        ammo.OnValueChanged += OnAmmoChanged;
-    }
+            if (IsServer)
+            {
+                health.Value = maxHealth.Value;
+            }
 
-    public override void OnNetworkDespawn()
-    {
-        base.OnNetworkDespawn();
+            if (IsOwner)
+            {
+                health.OnValueChanged += OnHealthChanged;
+            }
+        }
 
-        if (!IsOwner) return;
+        public override void OnNetworkDespawn()
+        {
+            base.OnNetworkDespawn();
 
-        health.OnValueChanged -= OnHealthChanged;
-        ammo.OnValueChanged -= OnAmmoChanged;
-    }
+            if (!IsOwner) return;
 
-    private void OnHealthChanged(int oldValue, int newValue)
-    {
-        Debug.Log($"Health changed to: {newValue.ToString()}");
-    }
+            health.OnValueChanged -= OnHealthChanged;
+        }
 
-    private void OnAmmoChanged(int oldValue, int newValue)
-    {
-        Debug.Log($"Ammo changed to: {newValue.ToString()}");
-    }
+        private void OnHealthChanged(int oldValue, int newValue)
+        {
+            Debug.Log($"Health changed to: {newValue.ToString()}");
+            if (newValue <= 0)
+            {
+                Debug.Log("Player died");
+                OnPlayerDied?.Invoke(NetworkManager.Singleton.LocalClientId);
+                GameManager.Instance.EndGame();
+            }
+        }
 
-    [ServerRpc]
-    private void ReloadAmmoServerRpc()
-    {
-        ammo.Value = 30;
+        [Rpc(SendTo.Server)]
+        public void TakeDamageServerRpc(int damage)
+        {
+            if (!IsServer) return;
+            health.Value -= damage;
+        }
+
+        [ClientRpc]
+        private void UpdateHealthClientRpc(int newHealth)
+        {
+            health.Value = newHealth;
+        }
     }
 }

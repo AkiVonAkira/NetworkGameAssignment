@@ -10,13 +10,15 @@ namespace _Project
         public PlayerSpawnPosition player2SpawnPosition;
         public CameraSwitcher cameraSwitcher;
         public TextMeshProUGUI networkStatsText;
-        public GameObject gameOverPanel;
         public TextMeshProUGUI rematchStatusText;
 
         private NetworkManagerUI _networkManagerUI;
         private NetworkStatsUI _networkStatsUI;
         private int _playerCount;
-        private NetworkVariable<int> rematchVotes = new(0);
+            
+        private readonly NetworkVariable<int> _rematchVotes = new();
+        private string _player1Name = new("Player 1");
+        private string _player2Name = new("Player 2");
 
         private void Start()
         {
@@ -28,6 +30,8 @@ namespace _Project
 
             if (_networkStatsUI == null) Debug.LogError("NetworkStatsUI not found in the scene.");
             if (cameraSwitcher == null) Debug.LogError("Please assign the CameraSwitcher.");
+            
+            PlayerNetworkStats.OnPlayerDied += HandlePlayerDied;
         }
 
         private new void OnDestroy()
@@ -37,6 +41,8 @@ namespace _Project
                 NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
                 NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnected;
             }
+
+            PlayerNetworkStats.OnPlayerDied -= HandlePlayerDied;
         }
 
         public override void OnNetworkSpawn()
@@ -51,14 +57,16 @@ namespace _Project
 
         private void OnClientConnected(ulong clientId)
         {
+            if (!IsServer) return;
             _playerCount++;
             switch (_playerCount)
             {
                 case 1:
                     cameraSwitcher.enabled = false;
-                    InitializePlayer(clientId);
+                    InitializePlayer(clientId, _player1Name);
                     break;
                 case 2:
+                    InitializePlayer(clientId, _player2Name);
                     StartGame();
                     break;
                 case >= 2:
@@ -66,8 +74,8 @@ namespace _Project
                     return;
             }
 
-            ChatManager.Instance.playerName = $"Player {_playerCount}";
-            ChatManager.Instance.SendChatMessage($"Player {_playerCount} has joined the game.", "Server");
+            ChatManager.Instance.playerName = clientId == 0 ? _player1Name : _player2Name;
+            ChatManager.Instance.SendChatMessage($"{ChatManager.Instance.playerName} has joined the game.", "Server");
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -77,6 +85,7 @@ namespace _Project
 
         private void OnClientDisconnected(ulong clientId)
         {
+            if (!IsServer) return;
             _playerCount--;
             switch (_playerCount)
             {
@@ -84,30 +93,35 @@ namespace _Project
                     cameraSwitcher.enabled = true;
                     break;
                 case < 2:
-                    EndGame();
+                    ChatManager.Instance.playerName = clientId == 0 ? _player1Name : _player2Name;
+                    ChatManager.Instance.SendChatMessage($"{ChatManager.Instance.playerName} has disconnected the game.", "Server");
+                    ChatManager.Instance.chatPanel.SetActive(false);
+                    EndGame(false);
                     break;
             }
-
-            ChatManager.Instance.playerName = $"Player {_playerCount}";
-            ChatManager.Instance.SendChatMessage($"Player {_playerCount} has disconnected the game.", "Server");
-            ChatManager.Instance.chatPanel.SetActive(false);
 
             UpdatePlayerCountText();
         }
 
         private void StartGame()
         {
-            foreach (var client in NetworkManager.Singleton.ConnectedClientsList) InitializePlayer(client.ClientId);
+            if (!IsServer) return;
+            foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+            {
+                var playerName = client.ClientId == 0 ? _player1Name : _player2Name;
+                InitializePlayer(client.ClientId, playerName);
+            }
         }
 
-        private void InitializePlayer(ulong clientId)
+        private void InitializePlayer(ulong clientId, string playerName)
         {
+            if (!IsServer) return;
             var playerObject = NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject;
             var spawnPosition = clientId == 0
                 ? player1SpawnPosition.GetRandomSpawnPosition()
                 : player2SpawnPosition.GetRandomSpawnPosition();
             playerObject.transform.position = spawnPosition;
-            playerObject.transform.rotation = Quaternion.identity;
+            playerObject.transform.Rotate(Vector3.up, clientId == 0 ? 0 : 180);
 
             _networkStatsUI.UpdatePort();
             UpdatePlayerCountText();
@@ -118,32 +132,54 @@ namespace _Project
             networkStatsText.text = $"#{_playerCount}";
         }
 
-        private void EndGame()
+        private void HandlePlayerDied(ulong playerId)
         {
-            gameOverPanel.SetActive(true);
-            rematchVotes.Value = 0;
-            UpdateRematchStatus();
+            var playerName = playerId == 0 ? _player1Name : _player2Name;
+            ChatManager.Instance.SendChatMessage($"{playerName} has died.", "Server");
+            var winnerName = playerId == 0 ? _player2Name : _player1Name;
+            SetGameOverText(winnerName);
+        }
+
+        public void EndGame(bool allowRematch = true)
+        {
+            if (!IsServer) return;
+            GameOverUI.Instance.Show();
+            if (allowRematch)
+            {
+                GameOverUI.Instance.rematchButton.interactable = true;
+                _rematchVotes.Value = 0;
+                UpdateRematchStatus();
+            }
+            else
+            {
+                rematchStatusText.text = "Rematch Disabled";
+                GameOverUI.Instance.rematchButton.interactable = false;
+            }
+
             Time.timeScale = 0;
         }
 
         public void Rematch()
         {
-            rematchVotes.Value++;
+            if (!IsServer) return;
+            _rematchVotes.Value++;
             UpdateRematchStatus();
-            if (rematchVotes.Value == 2)
+            if (_rematchVotes.Value == 2)
             {
-                gameOverPanel.SetActive(false);
+                GameOverUI.Instance.Hide();
                 Time.timeScale = 1;
-                foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
-                {
-                    InitializePlayer(client.ClientId);
-                }
+                StartGame();
             }
         }
 
         private void UpdateRematchStatus()
         {
-            rematchStatusText.text = $"Rematch {rematchVotes.Value}/2";
+            rematchStatusText.text = $"Rematch {_rematchVotes.Value}/2";
+        }
+
+        private void SetGameOverText(string winnerName)
+        {
+            GameOverUI.Instance.winnerText.text = $"{winnerName} has won the game!";
         }
     }
 }

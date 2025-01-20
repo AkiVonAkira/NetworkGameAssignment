@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace _Project
 {
-    public class PauseMenuUI : Singleton<PauseMenuUI>
+    public class PauseMenuUI : NetworkSingleton<PauseMenuUI>
     {
         [SerializeField] private Button quitButton;
         [SerializeField] private Button leaveServerButton;
@@ -28,12 +28,12 @@ namespace _Project
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape)) TogglePauseMenu();
+            if (Input.GetKeyDown(KeyCode.Escape) && IsOwner) TogglePauseMenu();
         }
 
-        public void TogglePauseMenu()
+        private void TogglePauseMenu()
         {
-            if (chatManager.isChatOpen) return;
+            if (chatManager.isChatOpen || GameOverUI.Instance.IsMenuOpen) return;
 
             pauseMenuCanvas.enabled = !pauseMenuCanvas.enabled;
             Time.timeScale = pauseMenuCanvas.enabled ? 0 : 1;

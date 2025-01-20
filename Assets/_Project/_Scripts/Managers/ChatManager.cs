@@ -10,6 +10,7 @@ namespace _Project
         [SerializeField] private ChatMessage chatMessagePrefab;
         [SerializeField] private Transform chatMessageParent;
         [SerializeField] private TMP_InputField chatInputField;
+        private InputSystem _inputSystem;
 
         public string playerName;
         public bool isChatOpen;
@@ -31,7 +32,12 @@ namespace _Project
 
             if (Input.GetKeyDown(KeyCode.Escape) && IsOwner) CloseChat();
         }
-
+        
+        public void SetInputSystem(InputSystem inputSystem)
+        {
+            _inputSystem = inputSystem;
+        }
+        
         private void OpenChat()
         {
             if (PauseMenuUI.Instance.IsPaused) return;
@@ -42,6 +48,7 @@ namespace _Project
             chatInputField.onFocusSelectAll = true;
             chatInputField.Select();
             UnlockCursor();
+            _inputSystem.enabled = false;
         }
 
         private void CloseChat()
@@ -51,18 +58,17 @@ namespace _Project
             chatInputField.text = string.Empty;
             chatInputField.DeactivateInputField();
             LockCursor();
+            _inputSystem.enabled = true;
         }
 
         private void LockCursor()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            _inputSystem.SetCursorState(false);
         }
 
         private void UnlockCursor()
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            _inputSystem.SetCursorState(false);
         }
 
         public void SendChatMessage(string message, string fromWho = null)
@@ -93,7 +99,7 @@ namespace _Project
             return new Color(r, g, b);
         }
 
-        [ServerRpc(RequireOwnership = false)]
+        [Rpc(SendTo.Server, RequireOwnership = false)]
         private void SendChatMessageServerRpc(string message)
         {
             ReceiveChatMessageClientRpc(message);

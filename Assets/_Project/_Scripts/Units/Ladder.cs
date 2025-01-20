@@ -6,12 +6,26 @@ namespace _Project
     {
         private void OnTriggerEnter(Collider other)
         {
-            //if (other.CompareTag("Player")) other.GetComponent<FirstPersonController>().IsClimbing = true;
+            if (other.CompareTag("Player"))
+            {
+                var controller = other.GetComponent<FirstPersonController>();
+                if (controller != null)
+                {
+                    controller.SetClimbing(true);
+                }
+            }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            //if (other.CompareTag("Player")) other.GetComponent<FirstPersonController>().IsClimbing = false;
+            if (other.CompareTag("Player"))
+            {
+                var controller = other.GetComponent<FirstPersonController>();
+                if (controller != null)
+                {
+                    controller.SetClimbing(false);
+                }
+            }
         }
     }
 }

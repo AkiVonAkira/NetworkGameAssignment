@@ -72,9 +72,10 @@ namespace _Project
             reload = newReloadState;
         }
 
-        private void SetCursorState(bool newState)
+        public void SetCursorState(bool newState)
         {
             Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.visible = !newState;
         }
 
 #if ENABLE_INPUT_SYSTEM
