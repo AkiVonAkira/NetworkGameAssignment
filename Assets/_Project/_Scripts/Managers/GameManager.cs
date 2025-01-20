@@ -74,8 +74,11 @@ namespace _Project
                     return;
             }
 
-            ChatManager.Instance.playerName = clientId == 0 ? _player1Name : _player2Name;
-            ChatManager.Instance.SendChatMessage($"{ChatManager.Instance.playerName} has joined the game.", "Server");
+            if (ChatManager.Instance != null)
+            {
+                ChatManager.Instance.playerName = clientId == 0 ? _player1Name : _player2Name;
+                ChatManager.Instance.SendChatMessage($"{ChatManager.Instance.playerName} has joined the game.", "Server");
+            }
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -93,9 +96,6 @@ namespace _Project
                     cameraSwitcher.enabled = true;
                     break;
                 case < 2:
-                    ChatManager.Instance.playerName = clientId == 0 ? _player1Name : _player2Name;
-                    ChatManager.Instance.SendChatMessage($"{ChatManager.Instance.playerName} has disconnected the game.", "Server");
-                    ChatManager.Instance.chatPanel.SetActive(false);
                     EndGame(false);
                     break;
             }

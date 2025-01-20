@@ -45,8 +45,8 @@ namespace _Project
                 GameManager.Instance.EndGame();
             }
         }
-
-        [Rpc(SendTo.Server)]
+        
+        [ServerRpc(RequireOwnership = false)]
         public void TakeDamageServerRpc(int damage)
         {
             if (!IsServer) return;

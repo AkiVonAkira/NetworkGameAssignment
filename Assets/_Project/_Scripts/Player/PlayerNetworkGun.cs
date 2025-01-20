@@ -13,7 +13,7 @@ namespace _Project
 
         [SerializeField] private GameObject gun;
         [SerializeField] private Transform firePoint;
-        [SerializeField] private GameObject bulletImpactPrefab;
+        [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private AudioSource gunShotSound;
         
         private bool _canFire = true;
@@ -83,17 +83,10 @@ namespace _Project
                 Ray ray = _playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
                 if (Physics.Raycast(ray, out RaycastHit hit))
                 {
-                    if (hit.collider.CompareTag("Player"))
-                    {
-                        var playerStats = hit.collider.GetComponent<PlayerNetworkStats>();
-                        if (playerStats != null)
-                        {
-                            playerStats.TakeDamageServerRpc(damage.Value);
-                        }
-                    }
-
-                    var bulletImpact = Instantiate(bulletImpactPrefab, hit.point, Quaternion.LookRotation(hit.normal));
-                    bulletImpact.GetComponent<NetworkObject>().Spawn();
+                    var targetPoint = hit.point;
+                    var bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+                    bullet.GetComponent<NetworkObject>().Spawn();
+                    bullet.GetComponent<Bullet>().Initialize(targetPoint, damage.Value);
                 }
 
                 ShootClientRpc();
